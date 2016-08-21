@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7610FCD-78D7-45D4-A8B6-706F5CFDEEDF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BipuniBitan_UI</RootNamespace>
+    <AssemblyName>BipuniBitan_UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Addional\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Addional\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Security\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Security\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setup\BrandSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setup\BrandSetup.Designer.cs">
+      <DependentUpon>BrandSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setup\ItemSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setup\ItemSetup.Designer.cs">
+      <DependentUpon>ItemSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setup\SupplierSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setup\SupplierSetup.Designer.cs">
+      <DependentUpon>SupplierSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setup\MeasurmentUnitSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setup\MeasurmentUnitSetup.Designer.cs">
+      <DependentUpon>MeasurmentUnitSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setup\CatagorySetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setup\CatagorySetup.Designer.cs">
+      <DependentUpon>CatagorySetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Raff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raff.Designer.cs">
+      <DependentUpon>Raff.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Addional\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Security\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setup\BrandSetup.resx">
+      <DependentUpon>BrandSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setup\ItemSetup.resx">
+      <DependentUpon>ItemSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setup\SupplierSetup.resx">
+      <DependentUpon>SupplierSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setup\MeasurmentUnitSetup.resx">
+      <DependentUpon>MeasurmentUnitSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setup\CatagorySetup.resx">
+      <DependentUpon>CatagorySetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raff.resx">
+      <DependentUpon>Raff.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Transaction\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\images\edit.png" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\product-setup.png" />
+    <None Include="Resources\Ex.jpg" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\icon-wallet.png" />
+    <None Include="Resources\icon-wallet1.png" />
+    <Content Include="Resources\images\BBC.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BipuniBitan_Manager\BipuniBitan_Manager.csproj">
+      <Project>{3bc16f83-7ce8-4307-9abc-fc829f840fc1}</Project>
+      <Name>BipuniBitan_Manager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
