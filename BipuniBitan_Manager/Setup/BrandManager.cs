@@ -36,5 +36,10 @@ namespace BipuniBitan_Manager.Setup
 
             return ds;
         }
+
+        public bool saveUpdateCatagory(string BrandID, string catagoryName, string Brandremarks, string BrandName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
