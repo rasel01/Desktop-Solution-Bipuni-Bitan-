@@ -38,8 +38,12 @@
             this.PnlUserControl = new System.Windows.Forms.Panel();
             this.PnlInfoGrpbx = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtBrandRemarks = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ddlCatagory = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBrandID = new System.Windows.Forms.TextBox();
             this.lblCatagoryID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,10 +62,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblFooter = new System.Windows.Forms.LinkLabel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ddlCatagory = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.FormHeaderPanel.SuspendLayout();
             this.FormName.SuspendLayout();
@@ -69,6 +69,7 @@
             this.PnlUserControl.SuspendLayout();
             this.PnlInfoGrpbx.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.pnlForButtonControls.SuspendLayout();
             this.pnlForGridControls.SuspendLayout();
@@ -76,7 +77,6 @@
             this.GridPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatagoryList)).BeginInit();
             this.panel3.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -183,6 +183,70 @@
             this.panel1.Size = new System.Drawing.Size(1031, 187);
             this.panel1.TabIndex = 0;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.66934F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.33066F));
+            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtBrandRemarks, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.ddlCatagory, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(529, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.66667F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(499, 181);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 81);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Catagory";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtBrandRemarks
+            // 
+            this.txtBrandRemarks.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtBrandRemarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBrandRemarks.Location = new System.Drawing.Point(175, 93);
+            this.txtBrandRemarks.Multiline = true;
+            this.txtBrandRemarks.Name = "txtBrandRemarks";
+            this.txtBrandRemarks.Size = new System.Drawing.Size(277, 81);
+            this.txtBrandRemarks.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 90);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 88);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "REMARKS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ddlCatagory
+            // 
+            this.ddlCatagory.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ddlCatagory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlCatagory.FormattingEnabled = true;
+            this.ddlCatagory.Location = new System.Drawing.Point(175, 29);
+            this.ddlCatagory.Name = "ddlCatagory";
+            this.ddlCatagory.Size = new System.Drawing.Size(277, 28);
+            this.ddlCatagory.TabIndex = 8;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
@@ -200,16 +264,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(523, 184);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // txtBrandRemarks
-            // 
-            this.txtBrandRemarks.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtBrandRemarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBrandRemarks.Location = new System.Drawing.Point(175, 93);
-            this.txtBrandRemarks.Multiline = true;
-            this.txtBrandRemarks.Name = "txtBrandRemarks";
-            this.txtBrandRemarks.Size = new System.Drawing.Size(277, 81);
-            this.txtBrandRemarks.TabIndex = 5;
             // 
             // txtBrandID
             // 
@@ -295,6 +349,7 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnRefresh
             // 
@@ -399,60 +454,6 @@
             this.lblFooter.Text = "Developed and Copyright © 2016 BipuniBitan. All rights reserved.";
             this.lblFooter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.66934F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.33066F));
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtBrandRemarks, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.ddlCatagory, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(529, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.66667F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(499, 181);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 90);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 88);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "REMARKS";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 3);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 81);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Catagory";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ddlCatagory
-            // 
-            this.ddlCatagory.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ddlCatagory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlCatagory.FormattingEnabled = true;
-            this.ddlCatagory.Location = new System.Drawing.Point(175, 30);
-            this.ddlCatagory.Name = "ddlCatagory";
-            this.ddlCatagory.Size = new System.Drawing.Size(277, 28);
-            this.ddlCatagory.TabIndex = 8;
-            // 
             // BrandSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,6 +472,8 @@
             this.PnlUserControl.ResumeLayout(false);
             this.PnlInfoGrpbx.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.pnlForButtonControls.ResumeLayout(false);
@@ -481,8 +484,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatagoryList)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
