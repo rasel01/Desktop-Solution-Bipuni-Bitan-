@@ -60,14 +60,14 @@ namespace BipuniBitan_UI.Forms.Setup
             if (validation())
             {
                 string BrandID = txtBrandID.Text;
-                string catagoryName = ddlCatagory.SelectedText;
-                string Brandremarks = txtBrandRemarks.,l;
+                string catagoryName = ddlCatagory.SelectedValue.ToString();
+                string Brandremarks = txtBrandRemarks.Text;
                 string BrandName = txtBrandName.Text;
 
                 try
                 {
 
-                    bool result = bm.saveUpdateCatagory(BrandID, catagoryName, Brandremarks, BrandName);
+                    bool result = bm.saveUpdateBrand(BrandID, catagoryName, Brandremarks, BrandName);
                     if (result)
                     {
                         General.SuccessMessage(BrandName + " " + "Save successfully");
