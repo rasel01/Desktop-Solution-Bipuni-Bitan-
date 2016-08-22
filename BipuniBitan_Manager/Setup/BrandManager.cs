@@ -76,5 +76,58 @@ namespace BipuniBitan_Manager.Setup
 
             return flag;
         }
+
+        public DataSet GetDgvBrandList()
+        {
+            DataSet ds = null;
+            try
+            {
+                string sql = "LoadBrandListDgv";
+                DbClass db = new DbClass();
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                string error;
+                ds = db.ReturnExecuteDatasetMethod(sql, parameters, out error);
+                if (error != String.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                    General.ErrorMessage(ex.Message);
+                
+            }
+            return ds;
+        }
+
+        public bool DeleteCatagoryList(string id)
+        {
+            bool result = false;
+            try
+            {
+                string sql = "DeleteFromBrand";
+                string error;
+                DbClass db = new DbClass();
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(new SqlParameter("@Brand_id", id));
+                int exe = db.ExecuteNonQueryMethod(sql, parameters, out error);
+                if (error != String.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+                if (exe > 0)
+                {
+                    result = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+            return result;
+        }
     }
 }
