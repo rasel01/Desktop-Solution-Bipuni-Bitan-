@@ -22,6 +22,7 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void Intialize()
         {
+            // commit
             LoadCatagoryList();
         }
 
