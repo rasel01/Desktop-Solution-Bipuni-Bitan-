@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BipuniBitan_Manager.Setup;
+using BipuniBitan_Manager.Utility;
 
 namespace BipuniBitan_UI.Forms.Setup
 {
@@ -57,33 +58,74 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //if (validation())
-            //{
-            //    string catagoryID = txtCatagoryID.Text;
-            //    string catagoryName = txtCatagoryName.Text;
-            //    string remarks = txtCatagoryRemarks.Text;
-            //    try
-            //    {
+            if (validation())
+            {
+                string BrandID = txtBrandID.Text;
+                string catagoryName = ddlCatagory.SelectedValue.ToString();
+                string Brandremarks = txtBrandRemarks.Text;
+                string BrandName = txtBrandName.Text;
 
-            //        bool result = cm.saveUpdateCatagory(catagoryName, catagoryID, remarks);
-            //        if (result)
-            //        {
-            //            General.SuccessMessage(catagoryName + " " + "Save successfully");
-            //            LoadDgvCatagoryList();
-            //            CatagoryControlsClear();
+                try
+                {
 
-            //        }
+                    bool result = bm.saveUpdateBrand(BrandID, catagoryName, Brandremarks, BrandName);
+                    if (result)
+                    {
+                        General.SuccessMessage(BrandName + " " + "Save successfully");
+                        //LoadDgvCatagoryList();
+                        BrandControlsClear();
 
-            //    }
-            //    catch (Exception ex)
-            //    {
+                    }
 
-            //        General.ErrorMessage(ex.Message);
-            //    }
+                }
+                catch (Exception ex)
+                {
 
+                    General.ErrorMessage(ex.Message);
+                }
+            }
+        }
 
+        private void BrandControlsClear()
+        {
+          txtBrandID.Text = String.Empty;
+          txtBrandName.Text = String.Empty;
+          txtBrandRemarks.Text = String.Empty;
+          ddlCatagory.Text = String.Empty;
 
-            //}
+        }
+
+        private bool validation()
+        {
+            string msg = String.Empty;
+            bool flag = false;
+            try
+            {
+                if (ddlCatagory.SelectedValue.ToString() == "0")
+                {
+                    
+                    msg += "Must select a catagory"+ Environment.NewLine;
+                }
+                if (string.IsNullOrEmpty(txtBrandName.Text))
+                {
+                    msg += "Must take a brand name" + Environment.NewLine;
+                }
+                if (msg==String.Empty)
+                {
+                    flag = true;
+                }
+                else
+                {
+                    General.WarningMessage(msg);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                
+               General.ErrorMessage(ex.Message);
+            }
+            return flag;
         }
     }
 }
