@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB-Info\MessurmentManager.cs" />
+    <Compile Include="DB-Info\SupplierManager.cs" />
     <Compile Include="DbClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
