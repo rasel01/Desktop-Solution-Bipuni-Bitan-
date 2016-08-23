@@ -2,30 +2,36 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BipuniBitan_DB;
-using BipuniBitan_Manager;
-using BipuniBitan_Manager;
+using BipuniBitan_Manager.Security;
+using BipuniBitan_Manager.Utility;
 
 namespace BipuniBitan_Manager.Setup
 {
-    public class MessurmentManager
+    public class SupplierManager
     {
-        public bool saveUpdateMesurerment(string MessID, string MessName, string remarks)
+        public bool saveUpdateSupplier(string SuppID, string SuppName, string suppAddress, string suppCompanyName, string suppContactPersonName, string suppPhoneNumber,
+            string suppCountry, string suppCity, string suppEmail, string suppWebAddress)
         {
+
             bool flag = false;
             try
             {
                 string error;
                 int result = 0;
-                string spname = "Insert_Update_Measurement";
+                string spname = "Insert_Update_Supplier";
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 DbClass db = new DbClass();
-                parameters.Add(new SqlParameter("@Measurement_id", MessID));
-                parameters.Add(new SqlParameter("@Measurement_name", MessName));
-                parameters.Add(new SqlParameter("@Measurement_remarks", remarks));
+                parameters.Add(new SqlParameter("@SuppID", SuppID));
+                parameters.Add(new SqlParameter("@SuppName", SuppName));
+                parameters.Add(new SqlParameter("@suppAddress", suppAddress));
+                parameters.Add(new SqlParameter("@suppCompanyName", suppCompanyName));
+                parameters.Add(new SqlParameter("@suppContactPersonName", suppContactPersonName));
+                parameters.Add(new SqlParameter("@suppPhoneNumber", suppPhoneNumber));
+                parameters.Add(new SqlParameter("@suppCountry", suppCountry));
+                parameters.Add(new SqlParameter("@suppCity", suppCity));
+                parameters.Add(new SqlParameter("@suppEmail", suppEmail));
+                parameters.Add(new SqlParameter("@suppWebAddress", suppWebAddress));
                 parameters.Add(new SqlParameter("@createby", AuthenticationManager.LoginUserId));
                 parameters.Add(new SqlParameter("@createDate", DateTime.Now));
                 parameters.Add(new SqlParameter("@modifyby", AuthenticationManager.LoginUserId));
@@ -39,25 +45,25 @@ namespace BipuniBitan_Manager.Setup
                 {
                     flag = true;
                 }
-
+                // commit
 
             }
             catch (Exception ex)
             {
                 General.ErrorMessage(ex.Message);
             }
-
+            //commit
 
             return flag;
         }
 
-        public DataSet GetDgvMeasurmentUnit()
+        public System.Data.DataSet GetSupplierList()
         {
             DataSet ds = null;
 
             try
             {
-                string sql = "LoadMeasurmentUnitListDgv";
+                string sql = "LoadSupplierListDgv";
                 DbClass db = new DbClass();
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 string error;
@@ -76,16 +82,16 @@ namespace BipuniBitan_Manager.Setup
             return ds;
         }
 
-        public bool DeleteMeasurementList(string id)
+        public bool DeleteSupplierList(string id)
         {
             bool result = false;
             try
             {
-                string sql = "DeleteFromMeasurementUnit";
+                string sql = "DeleteFromSupply";
                 string error;
                 DbClass db = new DbClass();
                 List<SqlParameter> parameters = new List<SqlParameter>();
-                parameters.Add(new SqlParameter("@Mess_id", id));
+                parameters.Add(new SqlParameter("@Supp_id", id));
                 int exe = db.ExecuteNonQueryMethod(sql, parameters, out error);
                 if (error != String.Empty)
                 {
@@ -103,30 +109,6 @@ namespace BipuniBitan_Manager.Setup
                 General.ErrorMessage(ex.Message);
             }
             return result;
-        }
-
-        public DataSet LoadMeasurementList()
-        {
-            DataSet ds = null;
-            try
-            {
-                string sql = @"GetMeasurementList";
-                string error;
-                DbClass db = new DbClass();
-                List<SqlParameter> parameters = new List<SqlParameter>();
-                ds = db.ReturnExecuteDatasetMethod(sql, parameters, out error);
-                if (error != String.Empty)
-                {
-                    General.ErrorMessage(error);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                General.ErrorMessage(ex.Message);
-            }
-
-            return ds;
         }
     }
 }
