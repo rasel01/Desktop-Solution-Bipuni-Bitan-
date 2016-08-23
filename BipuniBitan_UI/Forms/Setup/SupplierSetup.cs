@@ -15,6 +15,7 @@ namespace BipuniBitan_UI.Forms.Setup
     public partial class SupplierSetup : Form
     {
         //SupplierManager sm = new SupplierManager();
+        AdditionalManager am = new AdditionalManager();
         public SupplierSetup()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace BipuniBitan_UI.Forms.Setup
             //        if (result)
             //        {
             //            General.SuccessMessage(SuppName + " " + "Save successfully");
-            //            //LoadDgvSupplierList();
+            //            LoadDgvSupplierList();
             //            SuppliersControlsClear();
 
             //        }
@@ -69,7 +70,6 @@ namespace BipuniBitan_UI.Forms.Setup
         private void LoadDgvSupplierList()
         {
             //DataSet ds = sm.GetSupplierList();
-            DataSet ds = GetSupplierList();
             //if (ds.Tables.Count > 0  && ds.Tables[0].Rows.Count > 0)
             //{
             //    ShowSupplierList(ds);
@@ -83,48 +83,48 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void ShowSupplierList(DataSet ds)
         {
-            dgvSupplierList = General.CustomizeDataGridView(dgvSupplierList);
+            //dgvSupplierList = General.CustomizeDataGridView(dgvSupplierList);
 
-            DataGridViewImageColumn edit = new DataGridViewImageColumn();
-            Image editeImage = (Image)(new Bitmap(Properties.Resources.edit, new Size(22, 22)));
-            edit.Image = editeImage;
-            edit.Width = 20;
-            edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSupplierList.Columns.Add(edit);
-
-
-            dgvSupplierList.Columns.Add("name", "Supplier name");
-            dgvSupplierList.Columns.Add("Company", "Company Name");
-            dgvSupplierList.Columns.Add("Address", "Address");
-            dgvSupplierList.Columns.Add("Phone_Number", "Phone Number");
-            dgvSupplierList.Columns.Add("City", "City");
-            dgvSupplierList.Columns.Add("Country", "Country");
-            dgvSupplierList.Columns.Add("webAddress", "web Address");
-            dgvSupplierList.Columns.Add("Email", "Email Address");
-            dgvSupplierList.Columns.Add("Contact_Person_Name", "Contact Man");
-            dgvSupplierList.Columns.Add("createby", "CreationID");
-            dgvSupplierList.Columns.Add("createID", "createID");
-            dgvSupplierList.Columns.Add("SuppID", "SuppID");
+            //DataGridViewImageColumn edit = new DataGridViewImageColumn();
+            //Image editeImage = (Image)(new Bitmap(Properties.Resources.edit, new Size(22, 22)));
+            //edit.Image = editeImage;
+            //edit.Width = 20;
+            //edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //dgvSupplierList.Columns.Add(edit);
 
 
+            //dgvSupplierList.Columns.Add("name", "Supplier name");
+            //dgvSupplierList.Columns.Add("Company", "Company Name");
+            //dgvSupplierList.Columns.Add("Address", "Address");
+            //dgvSupplierList.Columns.Add("Phone_Number", "Phone Number");
+            //dgvSupplierList.Columns.Add("City", "City");
+            //dgvSupplierList.Columns.Add("Country", "Country");
+            //dgvSupplierList.Columns.Add("webAddress", "web Address");
+            //dgvSupplierList.Columns.Add("Email", "Email Address");
+            //dgvSupplierList.Columns.Add("Contact_Person_Name", "Contact Man");
+            //dgvSupplierList.Columns.Add("createby", "CreationID");
+            //dgvSupplierList.Columns.Add("createID", "createID");
+            //dgvSupplierList.Columns.Add("SuppID", "SuppID");
 
-            dgvSupplierList.Columns["name"].DataPropertyName = "name";
-            dgvSupplierList.Columns["Company"].DataPropertyName = "Company";
-            dgvSupplierList.Columns["Address"].DataPropertyName = "Address";
-            dgvSupplierList.Columns["Phone_Number"].DataPropertyName = "Phone_Number";
-            dgvSupplierList.Columns["City"].DataPropertyName = "City";
-            dgvSupplierList.Columns["Country"].DataPropertyName = "Country";
-            dgvSupplierList.Columns["webAddress"].DataPropertyName = "webAddress";
-            dgvSupplierList.Columns["Email"].DataPropertyName = "Email";
-            dgvSupplierList.Columns["Contact_Person_Name"].DataPropertyName = "Contact_Person_Name";
-            dgvSupplierList.Columns["createby"].DataPropertyName = "createby";
-            dgvSupplierList.Columns["createID"].DataPropertyName = "createID";
-            dgvSupplierList.Columns["SuppID"].DataPropertyName = "SuppID";
 
 
-            dgvSupplierList.DataSource = ds.Tables[0];
-            dgvSupplierList.Columns["createID"].Visible = false;
-            dgvSupplierList.Columns["SuppID"].Visible = false;
+            //dgvSupplierList.Columns["name"].DataPropertyName = "name";
+            //dgvSupplierList.Columns["Company"].DataPropertyName = "Company";
+            //dgvSupplierList.Columns["Address"].DataPropertyName = "Address";
+            //dgvSupplierList.Columns["Phone_Number"].DataPropertyName = "Phone_Number";
+            //dgvSupplierList.Columns["City"].DataPropertyName = "City";
+            //dgvSupplierList.Columns["Country"].DataPropertyName = "Country";
+            //dgvSupplierList.Columns["webAddress"].DataPropertyName = "webAddress";
+            //dgvSupplierList.Columns["Email"].DataPropertyName = "Email";
+            //dgvSupplierList.Columns["Contact_Person_Name"].DataPropertyName = "Contact_Person_Name";
+            //dgvSupplierList.Columns["createby"].DataPropertyName = "createby";
+            //dgvSupplierList.Columns["createID"].DataPropertyName = "createID";
+            //dgvSupplierList.Columns["SuppID"].DataPropertyName = "SuppID";
+
+
+            //dgvSupplierList.DataSource = ds.Tables[0];
+            //dgvSupplierList.Columns["createID"].Visible = false;
+            //dgvSupplierList.Columns["SuppID"].Visible = false;
             
 
         }
@@ -179,6 +179,38 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    DialogResult user = MessageBox.Show(@"Do You want to delete Brand ?", @"Confirmation",
+            //    MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            //    if (user == DialogResult.OK)
+            //    {
+            //        string id = txtSupplierID.Text;
+            //        string name = txtSupplierNAME.Text;
+            //        bool result = sm.DeleteSupplierList(id);
+            //        if (result)
+            //        {
+            //            General.SuccessMessage(name + " " + " Deleted successfully");
+            //             LoadDgvSupplierList();
+            //             SuppliersControlsClear();
+
+            //        }
+            //        else
+            //        {
+            //            General.SuccessMessage(name + " " + " : Failed to Delete");
+            //            LoadDgvBrand();
+            //            BrandControlsClear();
+            //        }
+            //    }
+
+
+
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    General.ErrorMessage(ex.Message);
+            //}
 
         }
 
@@ -187,11 +219,26 @@ namespace BipuniBitan_UI.Forms.Setup
             SuppliersControlsClear();
         }
 
-
-        public DataSet GetSupplierList()
+        private void dgvSupplierList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            return new DataSet();
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                txtSupplierNAME.Text = dgvSupplierList.Rows[e.RowIndex].Cells["name"].Value.ToString();
+                txtSupplierCOMPANY.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Company"].Value.ToString();
+                txtSupplierADDRESS.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+                txtSupplierPHONE.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Phone_Number"].Value.ToString();
+                txtSupplierCiTY.Text = dgvSupplierList.Rows[e.RowIndex].Cells["City"].Value.ToString();
+                txtSupplierCOUNTRY.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Country"].Value.ToString();
+                txtSupplierWEB.Text = dgvSupplierList.Rows[e.RowIndex].Cells["webAddress"].Value.ToString();
+                txtSupplierEMAIL.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+                txtSupplierCONTACT.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Contact_Person_Name"].Value.ToString();
+                txtSupplierID.Text = dgvSupplierList.Rows[e.RowIndex].Cells["SuppID"].Value.ToString();
+                
+            }
+           
         }
+
+
+        
     }
 }
