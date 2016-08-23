@@ -14,7 +14,7 @@ namespace BipuniBitan_UI.Forms.Setup
 {
     public partial class SupplierSetup : Form
     {
-        SupplierManager sm = new SupplierManager();
+        //SupplierManager sm = new SupplierManager();
         public SupplierSetup()
         {
             InitializeComponent();
@@ -26,58 +26,59 @@ namespace BipuniBitan_UI.Forms.Setup
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-            if (validation())
-            {
-                string SuppID = txtSupplierID.Text;
-                string SuppName = txtSupplierNAME.Text;
-                string suppAddress = txtSupplierADDRESS.Text;
-                string suppCompanyName = txtSupplierCOMPANY.Text;
-                string suppContactPersonName = txtSupplierCONTACT.Text;
-                string suppPhoneNumber = txtSupplierPHONE.Text;
-                string suppCountry = txtSupplierCOUNTRY.Text;
-                string suppCity = txtSupplierCiTY.Text;
-                string suppEmail = txtSupplierEMAIL.Text;
-                string suppWebAddress = txtSupplierWEB.Text;
+            //if (validation())
+            //{
+            //    string SuppID = txtSupplierID.Text;
+            //    string SuppName = txtSupplierNAME.Text;
+            //    string suppAddress = txtSupplierADDRESS.Text;
+            //    string suppCompanyName = txtSupplierCOMPANY.Text;
+            //    string suppContactPersonName = txtSupplierCONTACT.Text;
+            //    string suppPhoneNumber = txtSupplierPHONE.Text;
+            //    string suppCountry = txtSupplierCOUNTRY.Text;
+            //    string suppCity = txtSupplierCiTY.Text;
+            //    string suppEmail = txtSupplierEMAIL.Text;
+            //    string suppWebAddress = txtSupplierWEB.Text;
 
-                //string suppPhoneNumber = txtSupplierPHONE.Text;
-                try
-                {
+            //    //string suppPhoneNumber = txtSupplierPHONE.Text;
+            //    try
+            //    {
 
-                    bool result = sm.saveUpdateSupplier(SuppID, SuppName, suppAddress, suppCompanyName, suppContactPersonName,
-                        suppPhoneNumber, suppCountry, suppCity, suppEmail,
-                        suppWebAddress);
-                    if (result)
-                    {
-                        General.SuccessMessage(SuppName + " " + "Save successfully");
-                        //LoadDgvSupplierList();
-                        SuppliersControlsClear();
+            //        bool result = sm.saveUpdateSupplier(SuppID, SuppName, suppAddress, suppCompanyName, suppContactPersonName,
+            //            suppPhoneNumber, suppCountry, suppCity, suppEmail,
+            //            suppWebAddress);
+            //        if (result)
+            //        {
+            //            General.SuccessMessage(SuppName + " " + "Save successfully");
+            //            //LoadDgvSupplierList();
+            //            SuppliersControlsClear();
 
-                    }
+            //        }
 
-                }
-                catch (Exception ex)
-                {
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                    General.ErrorMessage(ex.Message);
-                }
+            //        General.ErrorMessage(ex.Message);
+            //    }
 
 
 
-            }
+            //}
         }
 
         private void LoadDgvSupplierList()
         {
-            DataSet ds = sm.GetSupplierList();
-            if (ds.Tables.Count > 0  && ds.Tables[0].Rows.Count > 0)
-            {
-                ShowSupplierList(ds);
-            }
-            else
-            {
-                dgvSupplierList.DataSource = null;
-                dgvSupplierList = General.ClearDataGridView(dgvSupplierList);
-            }
+            //DataSet ds = sm.GetSupplierList();
+            DataSet ds = GetSupplierList();
+            //if (ds.Tables.Count > 0  && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    ShowSupplierList(ds);
+            //}
+            //else
+            //{
+            //    dgvSupplierList.DataSource = null;
+            //    dgvSupplierList = General.ClearDataGridView(dgvSupplierList);
+            //}
         }
 
         private void ShowSupplierList(DataSet ds)
@@ -119,7 +120,7 @@ namespace BipuniBitan_UI.Forms.Setup
             dgvSupplierList.Columns["createby"].DataPropertyName = "createby";
             dgvSupplierList.Columns["createID"].DataPropertyName = "createID";
             dgvSupplierList.Columns["SuppID"].DataPropertyName = "SuppID";
-            
+
 
             dgvSupplierList.DataSource = ds.Tables[0];
             dgvSupplierList.Columns["createID"].Visible = false;
@@ -184,6 +185,13 @@ namespace BipuniBitan_UI.Forms.Setup
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             SuppliersControlsClear();
+        }
+
+
+        public DataSet GetSupplierList()
+        {
+            
+            return new DataSet();
         }
     }
 }
