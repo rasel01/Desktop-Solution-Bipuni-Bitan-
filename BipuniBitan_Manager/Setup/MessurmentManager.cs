@@ -6,8 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BipuniBitan_DB;
-using BipuniBitan_Manager;
-using BipuniBitan_Manager;
+using BipuniBitan_Manager.Utility;
 
 namespace BipuniBitan_Manager.Setup
 {
