@@ -150,23 +150,23 @@ namespace BipuniBitan_UI.Forms.Setup
             string msg = String.Empty;
             if (string.IsNullOrEmpty(txtSupplierNAME.Text))
             {
-                msg = "Please enter a Supplier Name";
+                msg += "Please enter a Supplier Name" + Environment.NewLine;
             }
             if (string.IsNullOrEmpty(txtSupplierCOMPANY.Text))
             {
-                msg = "Please enter a Supplier Company Name";
+                msg += "Please enter a Supplier Company Name" + Environment.NewLine;
             }
             if (string.IsNullOrEmpty(txtSupplierADDRESS.Text))
             {
-                msg = "Please enter a Supplier Company Address Name";
+                msg += "Please enter a Supplier Company Address Name" + Environment.NewLine;
             }
             if (string.IsNullOrEmpty(txtSupplierPHONE.Text))
             {
-                msg = "Please enter a Supplier Contact Person Phone Number";
+                msg += "Please enter a Supplier Contact Person Phone Number" + Environment.NewLine;
             }
             if (string.IsNullOrEmpty(txtSupplierCONTACT.Text))
             {
-                msg = "Please enter a Supplier Contact Person Name";
+                msg += "Please enter a Supplier Contact Person Name" + Environment.NewLine;
             } 
             if (msg != String.Empty)
             {
