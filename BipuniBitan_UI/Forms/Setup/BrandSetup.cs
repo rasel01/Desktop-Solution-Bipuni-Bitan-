@@ -15,6 +15,7 @@ namespace BipuniBitan_UI.Forms.Setup
     public partial class BrandSetup : Form
     {
         BrandManager bm = new BrandManager();
+        CatagoryManager cm = new CatagoryManager();
         public BrandSetup()
         {
             InitializeComponent();
@@ -76,7 +77,7 @@ namespace BipuniBitan_UI.Forms.Setup
         private void LoadCatagoryList()
         {
           
-            DataSet ds = bm.GetCatagoryList();
+            DataSet ds = cm.LoadCatagoryList();
             DataTable dt = new DataTable();
             if (ds != null)
             {

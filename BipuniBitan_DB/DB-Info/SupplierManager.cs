@@ -2,58 +2,39 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms.VisualStyles;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BipuniBitan_DB;
 using BipuniBitan_Manager.Security;
 using BipuniBitan_Manager.Utility;
 
 namespace BipuniBitan_Manager.Setup
 {
-    public class CatagoryManager
+     public class SupplierManager
     {
-
-        AuthenticationManager AuthManager = new AuthenticationManager();
-
-
-
-        public DataSet LoadCatagoryList()
+        public bool saveUpdateSupplier(string SuppID, string SuppName, string suppAddress, string suppCompanyName, string suppContactPersonName, string suppPhoneNumber,
+            string suppCountry, string suppCity, string suppEmail, string suppWebAddress)
         {
-            DataSet ds = null;
-            try
-            {
-                string sql = @"GetCatagoryList";
-                string error;
-                DbClass db = new DbClass();
-                List<SqlParameter> parameters = new List<SqlParameter>();
-                ds = db.ReturnExecuteDatasetMethod(sql, parameters, out error);
-                if (error != String.Empty)
-                {
-                    General.ErrorMessage(error);
-                }
-            }
-            catch (Exception ex)
-            {
 
-                General.ErrorMessage(ex.Message);
-            }
-
-            return ds;
-        }
-
-
-        public bool saveUpdateCatagory(string name, string id, string remarks)
-        {
             bool flag = false;
             try
             {
                 string error;
                 int result = 0;
-                string spname = "Insert_Update_Catagory";
+                string spname = "Insert_Update_Supplier";
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 DbClass db = new DbClass();
-                parameters.Add(new SqlParameter("@catagory_id", id));
-                parameters.Add(new SqlParameter("@catagory_name", name));
-                parameters.Add(new SqlParameter("@catagory_remarks", remarks));
+                parameters.Add(new SqlParameter("@SuppID", SuppID));
+                parameters.Add(new SqlParameter("@SuppName", SuppName));
+                parameters.Add(new SqlParameter("@suppAddress", suppAddress));
+                parameters.Add(new SqlParameter("@suppCompanyName", suppCompanyName));
+                parameters.Add(new SqlParameter("@suppContactPersonName", suppContactPersonName));
+                parameters.Add(new SqlParameter("@suppPhoneNumber", suppPhoneNumber));
+                parameters.Add(new SqlParameter("@suppCountry", suppCountry));
+                parameters.Add(new SqlParameter("@suppCity", suppCity));
+                parameters.Add(new SqlParameter("@suppEmail", suppEmail));
+                parameters.Add(new SqlParameter("@suppWebAddress", suppWebAddress));
                 parameters.Add(new SqlParameter("@createby", AuthenticationManager.LoginUserId));
                 parameters.Add(new SqlParameter("@createDate", DateTime.Now));
                 parameters.Add(new SqlParameter("@modifyby", AuthenticationManager.LoginUserId));
@@ -67,31 +48,30 @@ namespace BipuniBitan_Manager.Setup
                 {
                     flag = true;
                 }
-
+                // commit
 
             }
             catch (Exception ex)
-            {     
-               General.ErrorMessage(ex.Message);
+            {
+                General.ErrorMessage(ex.Message);
             }
-
+            //commit
 
             return flag;
-
         }
 
-        public DataSet GetDgvCatagoryList()
+        public System.Data.DataSet GetSupplierList()
         {
             DataSet ds = null;
-            
+
             try
             {
-                string sql = "LoadCatagoryListDgv";
+                string sql = "LoadSupplierListDgv";
                 DbClass db = new DbClass();
-                List<SqlParameter>parameters = new List<SqlParameter>();
+                List<SqlParameter> parameters = new List<SqlParameter>();
                 string error;
                 ds = db.ReturnExecuteDatasetMethod(sql, parameters, out error);
-                if (error!= String.Empty)
+                if (error != String.Empty)
                 {
                     General.ErrorMessage(error);
                 }
@@ -99,26 +79,24 @@ namespace BipuniBitan_Manager.Setup
             }
             catch (Exception ex)
             {
-                
-               General.ErrorMessage(ex.Message);
+
+                General.ErrorMessage(ex.Message);
             }
-            return ds;
+            return ds; 
         }
 
-
-
-        public bool DeleteCatagoryList(string id)
+        public bool DeleteSupplierList(string id)
         {
             bool result = false;
             try
             {
-                string sql = "DeleteFromCatagory";
+                string sql = "DeleteFromSupply";
                 string error;
                 DbClass db = new DbClass();
-                List<SqlParameter>parameters = new List<SqlParameter>();
-                parameters.Add(new SqlParameter("@catagory_id", id));
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(new SqlParameter("@Supp_id", id));
                 int exe = db.ExecuteNonQueryMethod(sql, parameters, out error);
-                if (error!=String.Empty)
+                if (error != String.Empty)
                 {
                     General.ErrorMessage(error);
                 }
@@ -130,11 +108,10 @@ namespace BipuniBitan_Manager.Setup
             }
             catch (Exception ex)
             {
-                    
-               General.ErrorMessage(ex.Message);
+
+                General.ErrorMessage(ex.Message);
             }
             return result;
-
         }
     }
 }

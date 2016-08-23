@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB-Info\MessurmentManager.cs" />
+    <Compile Include="DB-Info\SupplierManager.cs" />
     <Compile Include="DbClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +57,8 @@
     <Content Include="DB-Info\LoadBrandListDgv.sql" />
     <Content Include="DB-Info\LoadMeasurmentUnitListDgv.sql" />
     <Content Include="DB-Info\LoadSupplierListDgv.sql" />
+    <Content Include="DB-Info\Office\GetBrandNameListCatagoryWise.sql" />
+    <Content Include="DB-Info\Office\GetMeasurementList.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
