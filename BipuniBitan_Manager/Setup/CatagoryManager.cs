@@ -14,6 +14,33 @@ namespace BipuniBitan_Manager.Setup
 
         AuthenticationManager AuthManager = new AuthenticationManager();
 
+
+
+        public DataSet LoadCatagoryList()
+        {
+            DataSet ds = null;
+            try
+            {
+                string sql = @"GetCatagoryList";
+                string error;
+                DbClass db = new DbClass();
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                ds = db.ReturnExecuteDatasetMethod(sql, parameters, out error);
+                if (error != String.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+
+            return ds;
+        }
+
+
         public bool saveUpdateCatagory(string name, string id, string remarks)
         {
             bool flag = false;

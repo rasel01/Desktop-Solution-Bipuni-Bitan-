@@ -39,6 +39,8 @@
             this.PnlInfoGrpbx = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ddlUnit = new System.Windows.Forms.ComboBox();
+            this.ddlBrand = new System.Windows.Forms.ComboBox();
             this.txtItemNAME = new System.Windows.Forms.TextBox();
             this.txtItemID = new System.Windows.Forms.TextBox();
             this.lblCatagoryID = new System.Windows.Forms.Label();
@@ -46,6 +48,7 @@
             this.lbCompanyName = new System.Windows.Forms.Label();
             this.lbSupAddress = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ddlCatagory = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtItemDescription = new System.Windows.Forms.TextBox();
             this.lblItemDescription = new System.Windows.Forms.Label();
@@ -63,13 +66,10 @@
             this.pnLGridHeader = new System.Windows.Forms.Panel();
             this.lblGridHeader = new System.Windows.Forms.Label();
             this.GridPnl = new System.Windows.Forms.Panel();
-            this.dgvCatagoryList = new System.Windows.Forms.DataGridView();
+            this.dgvItemList = new System.Windows.Forms.DataGridView();
             this.UnderLineUnderGrid = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblFooter = new System.Windows.Forms.LinkLabel();
-            this.ddlBrand = new System.Windows.Forms.ComboBox();
-            this.ddlUnit = new System.Windows.Forms.ComboBox();
-            this.ddlCatagory = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.FormHeaderPanel.SuspendLayout();
             this.FormName.SuspendLayout();
@@ -85,7 +85,7 @@
             this.pnlForGridControls.SuspendLayout();
             this.pnLGridHeader.SuspendLayout();
             this.GridPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCatagoryList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,11 +220,33 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(518, 336);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
+            // ddlUnit
+            // 
+            this.ddlUnit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ddlUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlUnit.FormattingEnabled = true;
+            this.ddlUnit.Location = new System.Drawing.Point(198, 288);
+            this.ddlUnit.Name = "ddlUnit";
+            this.ddlUnit.Size = new System.Drawing.Size(262, 28);
+            this.ddlUnit.TabIndex = 10;
+            // 
+            // ddlBrand
+            // 
+            this.ddlBrand.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ddlBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlBrand.FormattingEnabled = true;
+            this.ddlBrand.Location = new System.Drawing.Point(198, 220);
+            this.ddlBrand.Name = "ddlBrand";
+            this.ddlBrand.Size = new System.Drawing.Size(262, 28);
+            this.ddlBrand.TabIndex = 9;
+            // 
             // txtItemNAME
             // 
             this.txtItemNAME.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtItemNAME.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemNAME.Location = new System.Drawing.Point(197, 87);
+            this.txtItemNAME.Location = new System.Drawing.Point(198, 87);
             this.txtItemNAME.Name = "txtItemNAME";
             this.txtItemNAME.Size = new System.Drawing.Size(262, 26);
             this.txtItemNAME.TabIndex = 7;
@@ -234,7 +256,7 @@
             this.txtItemID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtItemID.Enabled = false;
             this.txtItemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemID.Location = new System.Drawing.Point(197, 20);
+            this.txtItemID.Location = new System.Drawing.Point(198, 20);
             this.txtItemID.Name = "txtItemID";
             this.txtItemID.Size = new System.Drawing.Size(262, 26);
             this.txtItemID.TabIndex = 6;
@@ -247,7 +269,7 @@
             this.lblCatagoryID.Location = new System.Drawing.Point(3, 3);
             this.lblCatagoryID.Margin = new System.Windows.Forms.Padding(3);
             this.lblCatagoryID.Name = "lblCatagoryID";
-            this.lblCatagoryID.Size = new System.Drawing.Size(188, 61);
+            this.lblCatagoryID.Size = new System.Drawing.Size(189, 61);
             this.lblCatagoryID.TabIndex = 1;
             this.lblCatagoryID.Text = "ID ";
             this.lblCatagoryID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -260,7 +282,7 @@
             this.lbSupName.Location = new System.Drawing.Point(3, 70);
             this.lbSupName.Margin = new System.Windows.Forms.Padding(3);
             this.lbSupName.Name = "lbSupName";
-            this.lbSupName.Size = new System.Drawing.Size(188, 61);
+            this.lbSupName.Size = new System.Drawing.Size(189, 61);
             this.lbSupName.TabIndex = 2;
             this.lbSupName.Text = "NAME";
             this.lbSupName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -273,7 +295,7 @@
             this.lbCompanyName.Location = new System.Drawing.Point(3, 137);
             this.lbCompanyName.Margin = new System.Windows.Forms.Padding(3);
             this.lbCompanyName.Name = "lbCompanyName";
-            this.lbCompanyName.Size = new System.Drawing.Size(188, 61);
+            this.lbCompanyName.Size = new System.Drawing.Size(189, 61);
             this.lbCompanyName.TabIndex = 3;
             this.lbCompanyName.Text = "CATAGORY NAME";
             this.lbCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -286,7 +308,7 @@
             this.lbSupAddress.Location = new System.Drawing.Point(3, 204);
             this.lbSupAddress.Margin = new System.Windows.Forms.Padding(3);
             this.lbSupAddress.Name = "lbSupAddress";
-            this.lbSupAddress.Size = new System.Drawing.Size(188, 61);
+            this.lbSupAddress.Size = new System.Drawing.Size(189, 61);
             this.lbSupAddress.TabIndex = 4;
             this.lbSupAddress.Text = "BRAND NAME";
             this.lbSupAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -299,10 +321,22 @@
             this.label4.Location = new System.Drawing.Point(3, 271);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(188, 62);
+            this.label4.Size = new System.Drawing.Size(189, 62);
             this.label4.TabIndex = 5;
             this.label4.Text = "MEASUREMENT  NAME";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ddlCatagory
+            // 
+            this.ddlCatagory.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ddlCatagory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlCatagory.FormattingEnabled = true;
+            this.ddlCatagory.Location = new System.Drawing.Point(198, 153);
+            this.ddlCatagory.Name = "ddlCatagory";
+            this.ddlCatagory.Size = new System.Drawing.Size(262, 28);
+            this.ddlCatagory.TabIndex = 10;
+            this.ddlCatagory.SelectionChangeCommitted += new System.EventHandler(this.ddlCatagory_SelectionChangeCommitted);
             // 
             // tableLayoutPanel3
             // 
@@ -376,6 +410,7 @@
             this.btnBrowser.TabIndex = 2;
             this.btnBrowser.Text = "browse";
             this.btnBrowser.UseVisualStyleBackColor = true;
+            this.btnBrowser.Click += new System.EventHandler(this.btnBrowser_Click);
             // 
             // ItemPICBx
             // 
@@ -414,6 +449,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -425,6 +461,7 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnRefresh
             // 
@@ -436,6 +473,7 @@
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // UnderLineUnderButtonControl
             // 
@@ -479,23 +517,22 @@
             // GridPnl
             // 
             this.GridPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GridPnl.Controls.Add(this.dgvCatagoryList);
+            this.GridPnl.Controls.Add(this.dgvItemList);
             this.GridPnl.Location = new System.Drawing.Point(0, 0);
             this.GridPnl.Margin = new System.Windows.Forms.Padding(0);
             this.GridPnl.Name = "GridPnl";
             this.GridPnl.Size = new System.Drawing.Size(1037, 213);
             this.GridPnl.TabIndex = 2;
             // 
-            // dgvCatagoryList
+            // dgvItemList
             // 
-            this.dgvCatagoryList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvCatagoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCatagoryList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCatagoryList.Location = new System.Drawing.Point(0, 0);
-            this.dgvCatagoryList.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvCatagoryList.Name = "dgvCatagoryList";
-            this.dgvCatagoryList.Size = new System.Drawing.Size(1035, 211);
-            this.dgvCatagoryList.TabIndex = 0;
+            this.dgvItemList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItemList.Location = new System.Drawing.Point(0, 23);
+            this.dgvItemList.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvItemList.Name = "dgvItemList";
+            this.dgvItemList.Size = new System.Drawing.Size(1035, 188);
+            this.dgvItemList.TabIndex = 0;
             // 
             // UnderLineUnderGrid
             // 
@@ -529,39 +566,6 @@
             this.lblFooter.Text = "Developed and Copyright © 2016 BipuniBitan. All rights reserved.";
             this.lblFooter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ddlBrand
-            // 
-            this.ddlBrand.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ddlBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlBrand.FormattingEnabled = true;
-            this.ddlBrand.Location = new System.Drawing.Point(197, 221);
-            this.ddlBrand.Name = "ddlBrand";
-            this.ddlBrand.Size = new System.Drawing.Size(262, 28);
-            this.ddlBrand.TabIndex = 9;
-            // 
-            // ddlUnit
-            // 
-            this.ddlUnit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ddlUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlUnit.FormattingEnabled = true;
-            this.ddlUnit.Location = new System.Drawing.Point(197, 289);
-            this.ddlUnit.Name = "ddlUnit";
-            this.ddlUnit.Size = new System.Drawing.Size(262, 28);
-            this.ddlUnit.TabIndex = 10;
-            // 
-            // ddlCatagory
-            // 
-            this.ddlCatagory.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ddlCatagory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlCatagory.FormattingEnabled = true;
-            this.ddlCatagory.Location = new System.Drawing.Point(197, 153);
-            this.ddlCatagory.Name = "ddlCatagory";
-            this.ddlCatagory.Size = new System.Drawing.Size(262, 28);
-            this.ddlCatagory.TabIndex = 10;
-            // 
             // ItemSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,7 +595,7 @@
             this.pnLGridHeader.ResumeLayout(false);
             this.pnLGridHeader.PerformLayout();
             this.GridPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCatagoryList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -619,7 +623,7 @@
         private System.Windows.Forms.Panel pnLGridHeader;
         private System.Windows.Forms.Label lblGridHeader;
         private System.Windows.Forms.Panel GridPnl;
-        private System.Windows.Forms.DataGridView dgvCatagoryList;
+        private System.Windows.Forms.DataGridView dgvItemList;
         private System.Windows.Forms.Panel UnderLineUnderGrid;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel lblFooter;
