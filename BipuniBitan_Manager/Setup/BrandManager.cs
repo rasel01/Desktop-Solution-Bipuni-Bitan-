@@ -44,7 +44,7 @@ namespace BipuniBitan_Manager.Setup
             try
             {
                 int result;
-                string sql = @"Insert_Update_Brand";
+                string sql = @"Insert_Update_Brand";//commit
                 string error;
                 DbClass db = new DbClass();
                 List<SqlParameter> parameters = new List<SqlParameter>();
