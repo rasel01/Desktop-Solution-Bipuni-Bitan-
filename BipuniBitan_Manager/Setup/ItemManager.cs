@@ -44,43 +44,40 @@ namespace BipuniBitan_Manager.Setup
         public bool saveUpdateItem(byte[] image, string ItemName, string catagoryId, string branID, string unitID, string itemDes, string itemID)
         {
             bool flag = false;
-            //try
-            //{
-            //    string error;
-            //    int result = 0;
-            //    string spname = "Insert_Update_Supplier";
-            //    List<SqlParameter> parameters = new List<SqlParameter>();
-            //    DbClass db = new DbClass();
-            //    parameters.Add(new SqlParameter("@SuppID", SuppID));
-            //    parameters.Add(new SqlParameter("@SuppName", SuppName));
-            //    parameters.Add(new SqlParameter("@suppAddress", suppAddress));
-            //    parameters.Add(new SqlParameter("@suppCompanyName", suppCompanyName));
-            //    parameters.Add(new SqlParameter("@suppContactPersonName", suppContactPersonName));
-            //    parameters.Add(new SqlParameter("@suppPhoneNumber", suppPhoneNumber));
-            //    parameters.Add(new SqlParameter("@suppCountry", suppCountry));
-            //    parameters.Add(new SqlParameter("@suppCity", suppCity));
-            //    parameters.Add(new SqlParameter("@suppEmail", suppEmail));
-            //    parameters.Add(new SqlParameter("@suppWebAddress", suppWebAddress));
-            //    parameters.Add(new SqlParameter("@createby", AuthenticationManager.LoginUserId));
-            //    parameters.Add(new SqlParameter("@createDate", DateTime.Now));
-            //    parameters.Add(new SqlParameter("@modifyby", AuthenticationManager.LoginUserId));
-            //    parameters.Add(new SqlParameter("@modifyDate", DateTime.Now));
-            //    result = db.ExecuteNonQueryMethod(spname, parameters, out error);
-            //    if (error != String.Empty)
-            //    {
-            //        General.ErrorMessage(error);
-            //    }
-            //    if (result > 0)
-            //    {
-            //        flag = true;
-            //    }
-            //    // commit
+            try
+            {
+                string error;
+                int result = 0;
+                string spname = "Insert_Update_Item";
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                DbClass db = new DbClass();
+                parameters.Add(new SqlParameter("@image", image));
+                parameters.Add(new SqlParameter("@ItemName", ItemName));
+                parameters.Add(new SqlParameter("@catagoryId", catagoryId));
+                parameters.Add(new SqlParameter("@branID", branID));
+                parameters.Add(new SqlParameter("@unitID", unitID));
+                parameters.Add(new SqlParameter("@itemDes", itemDes));
+                parameters.Add(new SqlParameter("@itemID", itemID));
+                parameters.Add(new SqlParameter("@createby", AuthenticationManager.LoginUserId));
+                parameters.Add(new SqlParameter("@createDate", DateTime.Now));
+                parameters.Add(new SqlParameter("@modifyby", AuthenticationManager.LoginUserId));
+                parameters.Add(new SqlParameter("@modifyDate", DateTime.Now));
+                result = db.ExecuteNonQueryMethod(spname, parameters, out error);
+                if (error != String.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+                if (result > 0)
+                {
+                    flag = true;
+                }
+                // commit
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    General.ErrorMessage(ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                General.ErrorMessage(ex.Message);
+            }
 
 
             return flag;
