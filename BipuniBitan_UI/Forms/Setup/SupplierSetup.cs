@@ -68,6 +68,7 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void LoadDgvSupplierList()
         {
+            // commit
             DataSet ds = sm.GetSupplierList();
             if (ds.Tables.Count > 0  && ds.Tables[0].Rows.Count > 0)
             {
