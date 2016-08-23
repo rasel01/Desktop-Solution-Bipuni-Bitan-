@@ -45,6 +45,9 @@
     <Compile Include="Security\AuthenticationManager.cs" />
     <Compile Include="Setup\BrandManager.cs" />
     <Compile Include="Setup\CatagoryManager.cs" />
+    <Compile Include="Setup\ItemManager.cs" />
+    <Compile Include="Setup\MessurmentManager.cs" />
+    <Compile Include="Setup\SupplierManager.cs" />
     <Compile Include="Utility\General.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -70,7 +70,7 @@
             this.pnLGridHeader = new System.Windows.Forms.Panel();
             this.lblGridHeader = new System.Windows.Forms.Label();
             this.GridPnl = new System.Windows.Forms.Panel();
-            this.dgvCatagoryList = new System.Windows.Forms.DataGridView();
+            this.dgvSupplierList = new System.Windows.Forms.DataGridView();
             this.UnderLineUnderGrid = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblFooter = new System.Windows.Forms.LinkLabel();
@@ -87,7 +87,7 @@
             this.pnlForGridControls.SuspendLayout();
             this.pnLGridHeader.SuspendLayout();
             this.GridPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCatagoryList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplierList)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -498,6 +498,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -509,6 +510,7 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnRefresh
             // 
@@ -520,6 +522,7 @@
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // UnderLineUnderButtonControl
             // 
@@ -563,23 +566,22 @@
             // GridPnl
             // 
             this.GridPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GridPnl.Controls.Add(this.dgvCatagoryList);
+            this.GridPnl.Controls.Add(this.dgvSupplierList);
             this.GridPnl.Location = new System.Drawing.Point(0, 0);
             this.GridPnl.Margin = new System.Windows.Forms.Padding(0);
             this.GridPnl.Name = "GridPnl";
             this.GridPnl.Size = new System.Drawing.Size(1037, 213);
             this.GridPnl.TabIndex = 2;
             // 
-            // dgvCatagoryList
+            // dgvSupplierList
             // 
-            this.dgvCatagoryList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvCatagoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCatagoryList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCatagoryList.Location = new System.Drawing.Point(0, 0);
-            this.dgvCatagoryList.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvCatagoryList.Name = "dgvCatagoryList";
-            this.dgvCatagoryList.Size = new System.Drawing.Size(1035, 211);
-            this.dgvCatagoryList.TabIndex = 0;
+            this.dgvSupplierList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvSupplierList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSupplierList.Location = new System.Drawing.Point(0, 23);
+            this.dgvSupplierList.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvSupplierList.Name = "dgvSupplierList";
+            this.dgvSupplierList.Size = new System.Drawing.Size(1035, 185);
+            this.dgvSupplierList.TabIndex = 0;
             // 
             // UnderLineUnderGrid
             // 
@@ -640,7 +642,7 @@
             this.pnLGridHeader.ResumeLayout(false);
             this.pnLGridHeader.PerformLayout();
             this.GridPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCatagoryList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplierList)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -668,7 +670,7 @@
         private System.Windows.Forms.Panel pnLGridHeader;
         private System.Windows.Forms.Label lblGridHeader;
         private System.Windows.Forms.Panel GridPnl;
-        private System.Windows.Forms.DataGridView dgvCatagoryList;
+        private System.Windows.Forms.DataGridView dgvSupplierList;
         private System.Windows.Forms.Panel UnderLineUnderGrid;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel lblFooter;
