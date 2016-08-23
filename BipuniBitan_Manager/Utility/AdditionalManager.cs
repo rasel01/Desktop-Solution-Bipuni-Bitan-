@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BipuniBitan_Manager.Setup
+namespace BipuniBitan_Manager.Utility
 {
-    public class ItemManager
+    public class AdditionalManager
     {
-
     }
 }

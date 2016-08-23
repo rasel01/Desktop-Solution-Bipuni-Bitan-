@@ -48,6 +48,7 @@
     <Compile Include="Setup\ItemManager.cs" />
     <Compile Include="Setup\MessurmentManager.cs" />
     <Compile Include="Setup\SupplierManager.cs" />
+    <Compile Include="Utility\AdditionalManager.cs" />
     <Compile Include="Utility\General.cs" />
   </ItemGroup>
   <ItemGroup>

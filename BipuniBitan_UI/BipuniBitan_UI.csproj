@@ -127,6 +127,7 @@
     <EmbeddedResource Include="Raff.resx">
       <DependentUpon>Raff.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Documentation\BipuniBitan%28Desktop App%29TimeLine.xlsx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

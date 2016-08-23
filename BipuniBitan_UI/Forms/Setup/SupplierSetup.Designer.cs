@@ -582,6 +582,7 @@
             this.dgvSupplierList.Name = "dgvSupplierList";
             this.dgvSupplierList.Size = new System.Drawing.Size(1035, 185);
             this.dgvSupplierList.TabIndex = 0;
+            this.dgvSupplierList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplierList_CellContentClick);
             // 
             // UnderLineUnderGrid
             // 

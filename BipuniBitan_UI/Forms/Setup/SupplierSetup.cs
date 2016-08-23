@@ -68,9 +68,8 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void LoadDgvSupplierList()
         {
-            // commit
             DataSet ds = sm.GetSupplierList();
-            if (ds.Tables.Count > 0  && ds.Tables[0].Rows.Count > 0)
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 ShowSupplierList(ds);
             }
@@ -79,7 +78,7 @@ namespace BipuniBitan_UI.Forms.Setup
                 dgvSupplierList.DataSource = null;
                 dgvSupplierList = General.ClearDataGridView(dgvSupplierList);
             }
-        }
+            }
 
         private void ShowSupplierList(DataSet ds)
         {
@@ -179,6 +178,38 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DialogResult user = MessageBox.Show(@"Do You want to delete Brand ?", @"Confirmation",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (user == DialogResult.OK)
+                {
+                    string id = txtSupplierID.Text;
+                    string name = txtSupplierNAME.Text;
+                    bool result = sm.DeleteSupplierList(id);
+                    if (result)
+                    {
+                        General.SuccessMessage(name + " " + " Deleted successfully");
+                        LoadDgvSupplierList();
+                        SuppliersControlsClear();
+
+                    }
+                    else
+                    {
+                        General.SuccessMessage(name + " " + " : Failed to Delete");
+                        LoadDgvSupplierList();
+                        SuppliersControlsClear();
+                    }
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
 
         }
 
@@ -186,5 +217,27 @@ namespace BipuniBitan_UI.Forms.Setup
         {
             SuppliersControlsClear();
         }
+
+        private void dgvSupplierList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                txtSupplierNAME.Text = dgvSupplierList.Rows[e.RowIndex].Cells["name"].Value.ToString();
+                txtSupplierCOMPANY.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Company"].Value.ToString();
+                txtSupplierADDRESS.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+                txtSupplierPHONE.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Phone_Number"].Value.ToString();
+                txtSupplierCiTY.Text = dgvSupplierList.Rows[e.RowIndex].Cells["City"].Value.ToString();
+                txtSupplierCOUNTRY.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Country"].Value.ToString();
+                txtSupplierWEB.Text = dgvSupplierList.Rows[e.RowIndex].Cells["webAddress"].Value.ToString();
+                txtSupplierEMAIL.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+                txtSupplierCONTACT.Text = dgvSupplierList.Rows[e.RowIndex].Cells["Contact_Person_Name"].Value.ToString();
+                txtSupplierID.Text = dgvSupplierList.Rows[e.RowIndex].Cells["SuppID"].Value.ToString();
+                
+            }
+           
+        }
+
+
+        
     }
 }
