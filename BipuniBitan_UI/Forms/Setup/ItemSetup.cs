@@ -30,6 +30,7 @@ namespace BipuniBitan_UI.Forms.Setup
             LoadCatagoryList();
             LoadBrandList(ddlCatagory.SelectedValue.ToString());
             LoadMeasurementList();
+            LoadDgvItem();
 
         }
 
@@ -124,22 +125,25 @@ namespace BipuniBitan_UI.Forms.Setup
         {
             if (validation())
             {
-                byte[] image = GetImage();
+
+                
+                
                 string ItemName = txtItemNAME.Text;
                 string  catagoryId =ddlCatagory.SelectedValue.ToString();
                 string branID = ddlBrand.SelectedValue.ToString();
                 string unitID = ddlUnit.SelectedValue.ToString();
                 string itemDes = txtItemDescription.Text;
                 string itemID = txtItemID.Text;
+                byte[] image = GetImage();
+               
 
                 try
                 {
-
                     bool result = im.saveUpdateItem(image, ItemName, catagoryId, branID, unitID, itemDes, itemID);
                     if (result)
                     {
                         General.SuccessMessage(ItemName + " " + "Save successfully");
-                        //LoadDgvBrand();
+                        LoadDgvItem();
                         ItemControlsClear();
 
                     }
@@ -151,12 +155,67 @@ namespace BipuniBitan_UI.Forms.Setup
                     General.ErrorMessage(ex.Message);
                 }
 
+            }
+        }
 
+        private void LoadDgvItem()
+        {
+            DataSet ds = im.GetItemList();
 
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                ShowItemList(ds);
+            }
+            else
+            {
+                dgvItemList.DataSource = null;
+                dgvItemList = General.ClearDataGridView(dgvItemList);
             }
 
+        }
+
+        private void ShowItemList(DataSet ds)
+        {
+            dgvItemList = General.CustomizeDataGridView(dgvItemList);
+
+            DataGridViewImageColumn edit = new DataGridViewImageColumn();
+            Image editeImage = (Image)(new Bitmap(Properties.Resources.edit, new Size(22, 22)));
+            edit.Image = editeImage;
+            edit.Width = 20;
+            edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvItemList.Columns.Add(edit);
 
 
+            dgvItemList.Columns.Add("item_name", "Item ");
+            dgvItemList.Columns.Add("CatagoryName", "Catagory ");
+            dgvItemList.Columns.Add("BrandName", "Brand ");
+            dgvItemList.Columns.Add("MessName", "Measurment Unit");
+            dgvItemList.Columns.Add("ides", "Item Description");
+            dgvItemList.Columns.Add("ItemCatID", "ItemCatID");
+            dgvItemList.Columns.Add("ItemBrandId", "ItemBrandId");
+            dgvItemList.Columns.Add("ItemMessID", "ItemMessID");
+            dgvItemList.Columns.Add("ItemImage", "ItemImage");
+            dgvItemList.Columns.Add("itemID", "itemID");
+
+
+            dgvItemList.Columns["item_name"].DataPropertyName = "item_name";
+            dgvItemList.Columns["CatagoryName"].DataPropertyName = "CatagoryName";
+            dgvItemList.Columns["BrandName"].DataPropertyName = "BrandName";
+            dgvItemList.Columns["MessName"].DataPropertyName = "MessName";
+            dgvItemList.Columns["ides"].DataPropertyName = "ides";
+            dgvItemList.Columns["ItemCatID"].DataPropertyName = "ItemCatID";
+            dgvItemList.Columns["ItemBrandId"].DataPropertyName = "ItemBrandId";
+            dgvItemList.Columns["ItemImage"].DataPropertyName = "ItemImage";
+            dgvItemList.Columns["itemID"].DataPropertyName = "itemID";
+            dgvItemList.Columns["ItemMessID"].DataPropertyName = "ItemMessID";
+            
+
+            dgvItemList.DataSource = ds.Tables[0];
+            dgvItemList.Columns["ItemCatID"].Visible = false;
+            dgvItemList.Columns["ItemBrandId"].Visible = false;
+            dgvItemList.Columns["ItemMessID"].Visible = false;
+            dgvItemList.Columns["ItemImage"].Visible = false;
+            dgvItemList.Columns["itemID"].Visible = false;
         }
 
         private void ItemControlsClear()
@@ -164,7 +223,11 @@ namespace BipuniBitan_UI.Forms.Setup
             txtItemID.Text = String.Empty;
             txtItemNAME.Text = String.Empty;
             txtItemDescription.Text = String.Empty;
-            ItemPICBx = null;
+            //ItemPICBx.InitialImage = null;
+            ItemPICBx.Image = null;
+            ddlCatagory.SelectedIndex = 0;
+            ddlBrand.SelectedIndex = 0;
+            ddlUnit.SelectedIndex = 0;
 
         }
 
@@ -187,7 +250,7 @@ namespace BipuniBitan_UI.Forms.Setup
                 {
                     msg += "Must need a Item name" + Environment.NewLine;
                 }
-                if (!LoadPicture())
+                if (ItemPICBx.Image == null)
                 {
                     msg += "Must need a Item Picture" + Environment.NewLine;
                 }
@@ -223,6 +286,7 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
 
         }
 
@@ -266,7 +330,7 @@ namespace BipuniBitan_UI.Forms.Setup
             catch (Exception ex)
             {
 
-                throw;
+                General.ErrorMessage(ex.Message);
             }
 
             return flag;
@@ -277,6 +341,51 @@ namespace BipuniBitan_UI.Forms.Setup
         {
             string catagory = ddlCatagory.SelectedValue.ToString();
             LoadBrandList(catagory);
+        }
+
+        private void dgvItemList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                try
+                {
+                    txtItemDescription.Text = dgvItemList.Rows[e.RowIndex].Cells["ides"].Value.ToString();
+                    txtItemID.Text = dgvItemList.Rows[e.RowIndex].Cells["itemID"].Value.ToString();
+                    txtItemNAME.Text = dgvItemList.Rows[e.RowIndex].Cells["item_name"].Value.ToString();
+                    ddlCatagory.SelectedValue = dgvItemList.Rows[e.RowIndex].Cells["ItemCatID"].Value.ToString();
+                    LoadBrandList(ddlCatagory.SelectedValue.ToString());
+                    ddlBrand.SelectedValue = dgvItemList.Rows[e.RowIndex].Cells["ItemBrandId"].Value;
+                    ddlUnit.SelectedValue = dgvItemList.Rows[e.RowIndex].Cells["ItemMessID"].Value.ToString();
+                    byte[] imageData = (byte[])dgvItemList.Rows[e.RowIndex].Cells["ItemImage"].Value;
+                    Image img = GetExistsImage(imageData);
+                    ItemPICBx.Image = img;
+                }
+                catch (Exception ex)
+                {
+                    
+                    General.ErrorMessage(ex.Message);
+                }
+
+            }
+        }
+
+        private Image GetExistsImage(byte[] imageData)
+        {
+            Image newImage = null;
+            try
+            {
+                MemoryStream ms = new MemoryStream(imageData, 0, imageData.Length);
+                ms.Write(imageData,0,imageData.Length);
+                newImage = Image.FromStream(ms,true);
+
+            }
+            catch (Exception ex)
+            {
+                
+                General.ErrorMessage(ex.Message);
+            }
+
+            return newImage;
         }
     }
 }

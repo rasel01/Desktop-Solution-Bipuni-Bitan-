@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Transaction\" />
+    <Folder Include="Resources\Item-Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\images\edit.png" />

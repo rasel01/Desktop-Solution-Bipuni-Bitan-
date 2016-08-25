@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using BipuniBitan_DB;
 using BipuniBitan_Manager.Security;
 using BipuniBitan_Manager.Utility;
@@ -82,6 +78,31 @@ namespace BipuniBitan_Manager.Setup
 
             return flag;
             
+        }
+
+        public DataSet GetItemList()
+        {
+            DataSet ds = null;
+            try
+            {
+
+                string sql = @"LoadDgvItemList";
+                DbClass db = new DbClass();
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                string error;
+                ds = db.ReturnExecuteDatasetMethod(sql, parameters, out error);
+                if (error != String.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+            }
+            catch (Exception ex)
+            {
+                    
+               General.ErrorMessage(ex.Message);
+            }
+
+            return ds;
         }
     }
 }

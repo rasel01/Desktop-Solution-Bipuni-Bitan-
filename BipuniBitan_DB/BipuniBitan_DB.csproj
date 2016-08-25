@@ -48,6 +48,8 @@
     <Content Include="DB-Info\DeleteFromBrand.sql" />
     <Content Include="DB-Info\DeleteFromMeasurementUnit.sql" />
     <Content Include="DB-Info\hm\DeleteFromSupply.sql" />
+    <Content Include="DB-Info\hm\Insert_Update_Item.sql" />
+    <Content Include="DB-Info\hm\LoadDgvItemList.sql" />
     <Content Include="DB-Info\hm\LoadSupplierListDgv.sql" />
     <Content Include="DB-Info\Insert_Update_Brand.sql" />
     <Content Include="DB-Info\Insert_Update_Measurement.sql" />
