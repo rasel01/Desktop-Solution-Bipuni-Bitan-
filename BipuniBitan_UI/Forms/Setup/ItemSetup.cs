@@ -125,9 +125,6 @@ namespace BipuniBitan_UI.Forms.Setup
         {
             if (validation())
             {
-
-                
-                
                 string ItemName = txtItemNAME.Text;
                 string  catagoryId =ddlCatagory.SelectedValue.ToString();
                 string branID = ddlBrand.SelectedValue.ToString();
