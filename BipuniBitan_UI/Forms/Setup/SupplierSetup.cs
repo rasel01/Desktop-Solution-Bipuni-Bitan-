@@ -49,7 +49,7 @@ namespace BipuniBitan_UI.Forms.Setup
                     if (result)
                     {
                         General.SuccessMessage(SuppName + " " + "Save successfully");
-                        //LoadDgvSupplierList();
+                        LoadDgvSupplierList();
                         SuppliersControlsClear();
 
                     }

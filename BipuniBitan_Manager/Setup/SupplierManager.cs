@@ -57,7 +57,7 @@ namespace BipuniBitan_Manager.Setup
             return flag;
         }
 
-        public System.Data.DataSet GetSupplierList()
+        public DataSet GetSupplierList()
         {
             DataSet ds = null;
 
@@ -109,6 +109,32 @@ namespace BipuniBitan_Manager.Setup
                 General.ErrorMessage(ex.Message);
             }
             return result;
+        }
+
+        public DataSet LoadSupplierList()
+        {
+            DataSet ds = null;
+
+            try
+            {
+                string sql = "GetSupplierList";
+                DbClass db = new DbClass();
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                string error;
+                ds = db.ReturnExecuteDatasetMethod(sql, parameters, out error);
+                if (error != String.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+            return ds;
+            
         }
     }
 }

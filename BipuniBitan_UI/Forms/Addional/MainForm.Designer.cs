@@ -42,6 +42,7 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFormPanel = new System.Windows.Forms.Panel();
+            this.receieveItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menus.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +111,8 @@
             // 
             // tRANSACTIONToolStripMenuItem
             // 
+            this.tRANSACTIONToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.receieveItemToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
             this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
@@ -150,6 +153,13 @@
             this.MainFormPanel.Size = new System.Drawing.Size(1241, 709);
             this.MainFormPanel.TabIndex = 1;
             // 
+            // receieveItemToolStripMenuItem
+            // 
+            this.receieveItemToolStripMenuItem.Name = "receieveItemToolStripMenuItem";
+            this.receieveItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.receieveItemToolStripMenuItem.Text = "Receieve Item";
+            this.receieveItemToolStripMenuItem.Click += new System.EventHandler(this.receieveItemToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,5 +197,6 @@
         private System.Windows.Forms.ToolStripMenuItem itemSetupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierSetupToolStripMenuItem;
         private System.Windows.Forms.Panel MainFormPanel;
+        private System.Windows.Forms.ToolStripMenuItem receieveItemToolStripMenuItem;
     }
 }

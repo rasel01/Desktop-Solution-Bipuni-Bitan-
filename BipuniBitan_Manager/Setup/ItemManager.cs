@@ -104,5 +104,31 @@ namespace BipuniBitan_Manager.Setup
 
             return ds;
         }
+
+        public DataSet LoadItemList()
+        {
+            DataSet ds = null;
+            try
+            {
+
+                string sql = @"GetItemList";
+                DbClass db = new DbClass();
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                string error;
+                ds = db.ReturnExecuteDatasetMethod(sql, parameters, out error);
+                if (error != String.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+
+            return ds;
+            
+        }
     }
 }

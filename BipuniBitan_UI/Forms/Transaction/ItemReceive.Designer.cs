@@ -39,27 +39,25 @@
             this.PnlInfoGrpbx = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtSupplierPHONE = new System.Windows.Forms.TextBox();
-            this.txtSupplierADDRESS = new System.Windows.Forms.TextBox();
-            this.txtSupplierCOMPANY = new System.Windows.Forms.TextBox();
-            this.txtSupplierNAME = new System.Windows.Forms.TextBox();
-            this.txtSupplierID = new System.Windows.Forms.TextBox();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.txtItmReceiveID = new System.Windows.Forms.TextBox();
             this.lblCatagoryID = new System.Windows.Forms.Label();
             this.lbSupName = new System.Windows.Forms.Label();
             this.lbCompanyName = new System.Windows.Forms.Label();
             this.lbSupAddress = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ddlSupplier = new System.Windows.Forms.ComboBox();
+            this.ddlItem = new System.Windows.Forms.ComboBox();
+            this.dtpItemReceive = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtSupplierCONTACT = new System.Windows.Forms.TextBox();
-            this.txtSupplierEMAIL = new System.Windows.Forms.TextBox();
-            this.txtSupplierWEB = new System.Windows.Forms.TextBox();
-            this.txtSupplierCOUNTRY = new System.Windows.Forms.TextBox();
-            this.txtSupplierCiTY = new System.Windows.Forms.TextBox();
+            this.txtTotalQuantity = new System.Windows.Forms.TextBox();
+            this.txtToalPrice = new System.Windows.Forms.TextBox();
+            this.txtBuyPrice = new System.Windows.Forms.TextBox();
+            this.txtSellPrice = new System.Windows.Forms.TextBox();
             this.UnderLineUserControl = new System.Windows.Forms.Panel();
             this.pnlForButtonControls = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -70,7 +68,7 @@
             this.pnLGridHeader = new System.Windows.Forms.Panel();
             this.lblGridHeader = new System.Windows.Forms.Label();
             this.GridPnl = new System.Windows.Forms.Panel();
-            this.dgvSupplierList = new System.Windows.Forms.DataGridView();
+            this.dgvReceItmList = new System.Windows.Forms.DataGridView();
             this.UnderLineUnderGrid = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblFooter = new System.Windows.Forms.LinkLabel();
@@ -87,7 +85,7 @@
             this.pnlForGridControls.SuspendLayout();
             this.pnLGridHeader.SuspendLayout();
             this.GridPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplierList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReceItmList)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,9 +132,9 @@
             this.lblFormName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormName.Location = new System.Drawing.Point(3, 20);
             this.lblFormName.Name = "lblFormName";
-            this.lblFormName.Size = new System.Drawing.Size(178, 25);
+            this.lblFormName.Size = new System.Drawing.Size(124, 25);
             this.lblFormName.TabIndex = 0;
-            this.lblFormName.Text = "Supplier Info Setup";
+            this.lblFormName.Text = "Item Receive";
             // 
             // UnderLineUnderFormName
             // 
@@ -183,7 +181,7 @@
             this.PnlInfoGrpbx.Size = new System.Drawing.Size(1037, 371);
             this.PnlInfoGrpbx.TabIndex = 0;
             this.PnlInfoGrpbx.TabStop = false;
-            this.PnlInfoGrpbx.Text = "Create a new supplier";
+            this.PnlInfoGrpbx.Text = "Receive a New Item";
             // 
             // panel1
             // 
@@ -201,16 +199,16 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.67148F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.32852F));
-            this.tableLayoutPanel2.Controls.Add(this.txtSupplierPHONE, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.txtSupplierADDRESS, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.txtSupplierCOMPANY, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.txtSupplierNAME, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtSupplierID, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtRemarks, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.txtItmReceiveID, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblCatagoryID, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbSupName, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lbCompanyName, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.lbSupAddress, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.ddlSupplier, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.ddlItem, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.dtpItemReceive, 1, 3);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
@@ -219,55 +217,29 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(529, 324);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // txtSupplierPHONE
+            // txtRemarks
             // 
-            this.txtSupplierPHONE.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierPHONE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierPHONE.Location = new System.Drawing.Point(175, 277);
-            this.txtSupplierPHONE.Name = "txtSupplierPHONE";
-            this.txtSupplierPHONE.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierPHONE.TabIndex = 10;
+            this.txtRemarks.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtRemarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRemarks.Location = new System.Drawing.Point(175, 262);
+            this.txtRemarks.Multiline = true;
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(262, 55);
+            this.txtRemarks.TabIndex = 12;
             // 
-            // txtSupplierADDRESS
+            // txtItmReceiveID
             // 
-            this.txtSupplierADDRESS.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierADDRESS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierADDRESS.Location = new System.Drawing.Point(175, 195);
-            this.txtSupplierADDRESS.Multiline = true;
-            this.txtSupplierADDRESS.Name = "txtSupplierADDRESS";
-            this.txtSupplierADDRESS.Size = new System.Drawing.Size(262, 58);
-            this.txtSupplierADDRESS.TabIndex = 9;
-            // 
-            // txtSupplierCOMPANY
-            // 
-            this.txtSupplierCOMPANY.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierCOMPANY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierCOMPANY.Location = new System.Drawing.Point(175, 147);
-            this.txtSupplierCOMPANY.Name = "txtSupplierCOMPANY";
-            this.txtSupplierCOMPANY.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierCOMPANY.TabIndex = 8;
-            // 
-            // txtSupplierNAME
-            // 
-            this.txtSupplierNAME.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierNAME.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierNAME.Location = new System.Drawing.Point(175, 83);
-            this.txtSupplierNAME.Name = "txtSupplierNAME";
-            this.txtSupplierNAME.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierNAME.TabIndex = 7;
-            // 
-            // txtSupplierID
-            // 
-            this.txtSupplierID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierID.Enabled = false;
-            this.txtSupplierID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierID.Location = new System.Drawing.Point(175, 19);
-            this.txtSupplierID.Name = "txtSupplierID";
-            this.txtSupplierID.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierID.TabIndex = 6;
+            this.txtItmReceiveID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtItmReceiveID.Enabled = false;
+            this.txtItmReceiveID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItmReceiveID.Location = new System.Drawing.Point(175, 19);
+            this.txtItmReceiveID.Name = "txtItmReceiveID";
+            this.txtItmReceiveID.Size = new System.Drawing.Size(262, 26);
+            this.txtItmReceiveID.TabIndex = 6;
             // 
             // lblCatagoryID
             // 
@@ -292,7 +264,7 @@
             this.lbSupName.Name = "lbSupName";
             this.lbSupName.Size = new System.Drawing.Size(166, 58);
             this.lbSupName.TabIndex = 2;
-            this.lbSupName.Text = "NAME";
+            this.lbSupName.Text = "SUPPLIER";
             this.lbSupName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbCompanyName
@@ -305,7 +277,7 @@
             this.lbCompanyName.Name = "lbCompanyName";
             this.lbCompanyName.Size = new System.Drawing.Size(166, 58);
             this.lbCompanyName.TabIndex = 3;
-            this.lbCompanyName.Text = "COMPANY NAME";
+            this.lbCompanyName.Text = "ITEM";
             this.lbCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbSupAddress
@@ -318,7 +290,7 @@
             this.lbSupAddress.Name = "lbSupAddress";
             this.lbSupAddress.Size = new System.Drawing.Size(166, 58);
             this.lbSupAddress.TabIndex = 4;
-            this.lbSupAddress.Text = "ADDRESS";
+            this.lbSupAddress.Text = "RECEIVE DATE";
             this.lbSupAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
@@ -331,24 +303,54 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(166, 62);
             this.label4.TabIndex = 5;
-            this.label4.Text = "PHONE NUMBER";
+            this.label4.Text = "REMARKS";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ddlSupplier
+            // 
+            this.ddlSupplier.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ddlSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlSupplier.FormattingEnabled = true;
+            this.ddlSupplier.Location = new System.Drawing.Point(175, 82);
+            this.ddlSupplier.Name = "ddlSupplier";
+            this.ddlSupplier.Size = new System.Drawing.Size(262, 28);
+            this.ddlSupplier.TabIndex = 9;
+            // 
+            // ddlItem
+            // 
+            this.ddlItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ddlItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlItem.FormattingEnabled = true;
+            this.ddlItem.Location = new System.Drawing.Point(175, 146);
+            this.ddlItem.Name = "ddlItem";
+            this.ddlItem.Size = new System.Drawing.Size(262, 28);
+            this.ddlItem.TabIndex = 10;
+            // 
+            // dtpItemReceive
+            // 
+            this.dtpItemReceive.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtpItemReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpItemReceive.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpItemReceive.Location = new System.Drawing.Point(175, 211);
+            this.dtpItemReceive.Name = "dtpItemReceive";
+            this.dtpItemReceive.Size = new System.Drawing.Size(262, 26);
+            this.dtpItemReceive.TabIndex = 11;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.14784F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.85216F));
-            this.tableLayoutPanel3.Controls.Add(this.label9, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label7, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label8, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.txtSupplierCONTACT, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtSupplierEMAIL, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.txtSupplierWEB, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.txtSupplierCOUNTRY, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.txtSupplierCiTY, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.txtTotalQuantity, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtToalPrice, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.txtBuyPrice, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.txtSellPrice, 1, 3);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(541, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 5;
@@ -360,19 +362,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(487, 322);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 259);
-            this.label9.Margin = new System.Windows.Forms.Padding(3);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(208, 60);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "CITY";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -383,7 +372,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(208, 58);
             this.label5.TabIndex = 2;
-            this.label5.Text = "CONTACT PERSON NAME";
+            this.label5.Text = "TOTAL QUANTITY";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
@@ -396,7 +385,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(208, 57);
             this.label6.TabIndex = 3;
-            this.label6.Text = "EMAIL";
+            this.label6.Text = "TOTAL PRICE";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
@@ -409,7 +398,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(208, 59);
             this.label7.TabIndex = 4;
-            this.label7.Text = "WEB ADDRESS";
+            this.label7.Text = "BUY PRICE";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label8
@@ -422,53 +411,45 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(208, 58);
             this.label8.TabIndex = 5;
-            this.label8.Text = "COUNTRY";
+            this.label8.Text = "SELL PRICE";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtSupplierCONTACT
+            // txtTotalQuantity
             // 
-            this.txtSupplierCONTACT.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierCONTACT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierCONTACT.Location = new System.Drawing.Point(217, 19);
-            this.txtSupplierCONTACT.Name = "txtSupplierCONTACT";
-            this.txtSupplierCONTACT.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierCONTACT.TabIndex = 7;
+            this.txtTotalQuantity.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtTotalQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalQuantity.Location = new System.Drawing.Point(217, 19);
+            this.txtTotalQuantity.Name = "txtTotalQuantity";
+            this.txtTotalQuantity.Size = new System.Drawing.Size(262, 26);
+            this.txtTotalQuantity.TabIndex = 7;
             // 
-            // txtSupplierEMAIL
+            // txtToalPrice
             // 
-            this.txtSupplierEMAIL.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierEMAIL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierEMAIL.Location = new System.Drawing.Point(217, 82);
-            this.txtSupplierEMAIL.Name = "txtSupplierEMAIL";
-            this.txtSupplierEMAIL.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierEMAIL.TabIndex = 8;
+            this.txtToalPrice.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.txtToalPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtToalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtToalPrice.Location = new System.Drawing.Point(217, 82);
+            this.txtToalPrice.Name = "txtToalPrice";
+            this.txtToalPrice.Size = new System.Drawing.Size(262, 26);
+            this.txtToalPrice.TabIndex = 8;
             // 
-            // txtSupplierWEB
+            // txtBuyPrice
             // 
-            this.txtSupplierWEB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierWEB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierWEB.Location = new System.Drawing.Point(217, 146);
-            this.txtSupplierWEB.Name = "txtSupplierWEB";
-            this.txtSupplierWEB.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierWEB.TabIndex = 9;
+            this.txtBuyPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtBuyPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuyPrice.Location = new System.Drawing.Point(217, 146);
+            this.txtBuyPrice.Name = "txtBuyPrice";
+            this.txtBuyPrice.Size = new System.Drawing.Size(262, 26);
+            this.txtBuyPrice.TabIndex = 9;
             // 
-            // txtSupplierCOUNTRY
+            // txtSellPrice
             // 
-            this.txtSupplierCOUNTRY.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierCOUNTRY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierCOUNTRY.Location = new System.Drawing.Point(217, 211);
-            this.txtSupplierCOUNTRY.Name = "txtSupplierCOUNTRY";
-            this.txtSupplierCOUNTRY.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierCOUNTRY.TabIndex = 10;
-            // 
-            // txtSupplierCiTY
-            // 
-            this.txtSupplierCiTY.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSupplierCiTY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierCiTY.Location = new System.Drawing.Point(217, 276);
-            this.txtSupplierCiTY.Name = "txtSupplierCiTY";
-            this.txtSupplierCiTY.Size = new System.Drawing.Size(262, 26);
-            this.txtSupplierCiTY.TabIndex = 11;
+            this.txtSellPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSellPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSellPrice.Location = new System.Drawing.Point(217, 211);
+            this.txtSellPrice.Name = "txtSellPrice";
+            this.txtSellPrice.Size = new System.Drawing.Size(262, 26);
+            this.txtSellPrice.TabIndex = 10;
             // 
             // UnderLineUserControl
             // 
@@ -498,7 +479,6 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -522,7 +502,6 @@
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // UnderLineUnderButtonControl
             // 
@@ -559,30 +538,29 @@
             this.lblGridHeader.Location = new System.Drawing.Point(5, 2);
             this.lblGridHeader.Margin = new System.Windows.Forms.Padding(0);
             this.lblGridHeader.Name = "lblGridHeader";
-            this.lblGridHeader.Size = new System.Drawing.Size(99, 17);
+            this.lblGridHeader.Size = new System.Drawing.Size(141, 17);
             this.lblGridHeader.TabIndex = 1;
-            this.lblGridHeader.Text = "Supplier List";
+            this.lblGridHeader.Text = "Received Item List";
             // 
             // GridPnl
             // 
             this.GridPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GridPnl.Controls.Add(this.dgvSupplierList);
+            this.GridPnl.Controls.Add(this.dgvReceItmList);
             this.GridPnl.Location = new System.Drawing.Point(0, 0);
             this.GridPnl.Margin = new System.Windows.Forms.Padding(0);
             this.GridPnl.Name = "GridPnl";
             this.GridPnl.Size = new System.Drawing.Size(1037, 213);
             this.GridPnl.TabIndex = 2;
             // 
-            // dgvSupplierList
+            // dgvReceItmList
             // 
-            this.dgvSupplierList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvSupplierList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSupplierList.Location = new System.Drawing.Point(0, 23);
-            this.dgvSupplierList.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvSupplierList.Name = "dgvSupplierList";
-            this.dgvSupplierList.Size = new System.Drawing.Size(1035, 185);
-            this.dgvSupplierList.TabIndex = 0;
-            this.dgvSupplierList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplierList_CellContentClick);
+            this.dgvReceItmList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvReceItmList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReceItmList.Location = new System.Drawing.Point(0, 23);
+            this.dgvReceItmList.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvReceItmList.Name = "dgvReceItmList";
+            this.dgvReceItmList.Size = new System.Drawing.Size(1035, 185);
+            this.dgvReceItmList.TabIndex = 0;
             // 
             // UnderLineUnderGrid
             // 
@@ -616,7 +594,7 @@
             this.lblFooter.Text = "Developed and Copyright © 2016 BipuniBitan. All rights reserved.";
             this.lblFooter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // SupplierSetup
+            // ItemReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -624,7 +602,7 @@
             this.ClientSize = new System.Drawing.Size(1254, 670);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SupplierSetup";
+            this.Name = "ItemReceive";
             this.Text = "Catagory";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.FormHeaderPanel.ResumeLayout(false);
@@ -643,7 +621,7 @@
             this.pnLGridHeader.ResumeLayout(false);
             this.pnLGridHeader.PerformLayout();
             this.GridPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplierList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReceItmList)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -671,31 +649,29 @@
         private System.Windows.Forms.Panel pnLGridHeader;
         private System.Windows.Forms.Label lblGridHeader;
         private System.Windows.Forms.Panel GridPnl;
-        private System.Windows.Forms.DataGridView dgvSupplierList;
+        private System.Windows.Forms.DataGridView dgvReceItmList;
         private System.Windows.Forms.Panel UnderLineUnderGrid;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel lblFooter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblCatagoryID;
-        private System.Windows.Forms.Label lbSupName;
         private System.Windows.Forms.Label lbCompanyName;
         private System.Windows.Forms.Label lbSupAddress;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtSupplierPHONE;
-        private System.Windows.Forms.TextBox txtSupplierADDRESS;
-        private System.Windows.Forms.TextBox txtSupplierCOMPANY;
-        private System.Windows.Forms.TextBox txtSupplierNAME;
-        private System.Windows.Forms.TextBox txtSupplierID;
-        private System.Windows.Forms.TextBox txtSupplierCONTACT;
-        private System.Windows.Forms.TextBox txtSupplierEMAIL;
-        private System.Windows.Forms.TextBox txtSupplierWEB;
-        private System.Windows.Forms.TextBox txtSupplierCOUNTRY;
-        private System.Windows.Forms.TextBox txtSupplierCiTY;
+        private System.Windows.Forms.TextBox txtItmReceiveID;
+        private System.Windows.Forms.TextBox txtTotalQuantity;
+        private System.Windows.Forms.TextBox txtToalPrice;
+        private System.Windows.Forms.TextBox txtBuyPrice;
+        private System.Windows.Forms.TextBox txtSellPrice;
+        private System.Windows.Forms.Label lbSupName;
+        private System.Windows.Forms.ComboBox ddlSupplier;
+        private System.Windows.Forms.ComboBox ddlItem;
+        private System.Windows.Forms.DateTimePicker dtpItemReceive;
+        private System.Windows.Forms.TextBox txtRemarks;
     }
 }

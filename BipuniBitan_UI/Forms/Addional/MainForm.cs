@@ -11,6 +11,7 @@ using BipuniBitan_Manager;
 using BipuniBitan_Manager.Security;
 using BipuniBitan_UI.Forms.Security;
 using BipuniBitan_UI.Forms.Setup;
+using BipuniBitan_UI.Forms.Transaction;
 
 namespace BipuniBitan_UI.Forms.Addional
 {
@@ -110,6 +111,18 @@ namespace BipuniBitan_UI.Forms.Addional
         {
             Application.Exit();
             
+        }
+
+        private void receieveItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MainFormPanel.Controls.Clear();
+            ItemReceive ItmRece = new ItemReceive();
+            ItmRece.TopLevel = false;
+            ItmRece.AutoScroll = true;
+            ItmRece.FormBorderStyle = FormBorderStyle.None;
+            ItmRece.Dock = DockStyle.Fill;
+            MainFormPanel.Controls.Add(ItmRece);
+            ItmRece.Show();
         }
     }
 }
