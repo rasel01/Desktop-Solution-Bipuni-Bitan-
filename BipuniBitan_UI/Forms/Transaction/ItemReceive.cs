@@ -24,7 +24,7 @@ namespace BipuniBitan_UI.Forms.Transaction
             
             LoadSupplierList();
             LoadItemList();
-            LoadReceiveList();
+            //LoadReceiveList();
 
         }
 

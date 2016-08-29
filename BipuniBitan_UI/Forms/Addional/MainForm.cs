@@ -34,7 +34,7 @@ namespace BipuniBitan_UI.Forms.Addional
                 AuthenticationManager.LoginUserName = string.Empty;
                 AuthenticationManager.LoginUserId = string.Empty;
                 AuthenticationManager.LoginUserPass = string.Empty;
-                this.Close();
+                //this.Close();
                 home login = new home();
                 login.Show();
 
