@@ -479,6 +479,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -502,6 +503,7 @@
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // UnderLineUnderButtonControl
             // 

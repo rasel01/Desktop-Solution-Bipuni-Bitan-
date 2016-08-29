@@ -45,18 +45,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="DB-Info\DeleteFromBrand.sql" />
-    <Content Include="DB-Info\DeleteFromMeasurementUnit.sql" />
-    <Content Include="DB-Info\hm\Insert_Update_Item.sql" />
-    <Content Include="DB-Info\hm\LoadDgvItemList.sql" />
-    <Content Include="DB-Info\Insert_Update_Brand.sql" />
-    <Content Include="DB-Info\Insert_Update_Measurement.sql" />
-    <Content Include="DB-Info\Insert_Update_Supplier.sql" />
-    <Content Include="DB-Info\LoadBrandListDgv.sql" />
-    <Content Include="DB-Info\LoadMeasurmentUnitListDgv.sql" />
-    <Content Include="DB-Info\LoadSupplierListDgv.sql" />
-    <Content Include="DB-Info\Office\GetBrandNameListCatagoryWise.sql" />
-    <Content Include="DB-Info\Office\GetMeasurementList.sql" />
+    <None Include="DB-Info\BipuniBitan.bacpac" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

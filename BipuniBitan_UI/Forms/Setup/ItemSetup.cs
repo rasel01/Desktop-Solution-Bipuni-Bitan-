@@ -283,7 +283,38 @@ namespace BipuniBitan_UI.Forms.Setup
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DialogResult user = MessageBox.Show(@"Do You want to delete Item ?", @"Confirmation",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (user == DialogResult.OK)
+                {
+                    string id = txtItemID.Text;
+                    string name = txtItemNAME.Text;
+                    bool result = im.DeleteItemList(id);
+                    if (result)
+                    {
+                        General.SuccessMessage(name + " " + " Deleted successfully");
+                        Intialization();
+                        ItemControlsClear();
 
+                    }
+                    else
+                    {
+                        General.SuccessMessage(name + " " + " : Failed to Delete");
+                        Intialization();
+                        ItemControlsClear();
+                    }
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
 
         }
 

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BipuniBitan_Manager.Setup;
+using BipuniBitan_Manager.Transaction;
 using BipuniBitan_Manager.Utility;
 
 namespace BipuniBitan_UI.Forms.Transaction
@@ -16,6 +11,7 @@ namespace BipuniBitan_UI.Forms.Transaction
     {
         SupplierManager sm = new SupplierManager();
         ItemManager im = new ItemManager();
+        ItemReceiveManager irm = new ItemReceiveManager();
         public ItemReceive()
         {
             InitializeComponent();
@@ -25,10 +21,30 @@ namespace BipuniBitan_UI.Forms.Transaction
 
         private void Intialization()
         {
-            //dtpItemReceive.CustomFormat = @"yyyy-mm-dd";
+            
             LoadSupplierList();
             LoadItemList();
+            LoadReceiveList();
 
+        }
+
+        private void LoadReceiveList()
+        {
+            DataSet ds = irm.ReceivedItmList();
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                ShowReceiveItemList(ds);
+            }
+            else
+            {
+                dgvReceItmList.DataSource = null;
+                dgvReceItmList = General.ClearDataGridView(dgvReceItmList);
+            }
+        }
+
+        private void ShowReceiveItemList(DataSet ds)
+        {
+            throw new NotImplementedException();
         }
 
         private void LoadSupplierList()
@@ -96,7 +112,7 @@ namespace BipuniBitan_UI.Forms.Transaction
         {
             if (validation())
             {
-                string dt = dtpItemReceive.Text;
+                string dtime = dtpItemReceive.Text;
                 string buyPrice = txtBuyPrice.Text;
                 string sellPrice = txtSellPrice.Text;
                 string totalQuantity = txtTotalQuantity.Text;
@@ -104,10 +120,43 @@ namespace BipuniBitan_UI.Forms.Transaction
                 string remarks = txtRemarks.Text;
                 string itemName = ddlItem.SelectedValue.ToString();
                 string supplierName = ddlSupplier.SelectedValue.ToString();
+                string ItemReceID = txtItmReceiveID.Text;
 
-               // bool result = 
+               
+
+                try
+                {
+                    bool result = irm.SaveUpdate_ItemReceive(dtime, buyPrice, sellPrice,
+                   totalQuantity, totalPrice, remarks, itemName, supplierName, ItemReceID);
+                    if (result)
+                    {
+                        General.SuccessMessage("Save successfully");
+                        //LoadDgvItem();
+                        ItemReceControlsClear();
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    General.ErrorMessage(ex.Message);
+                }
 
             }
+        }
+
+        private void ItemReceControlsClear()
+        {
+            txtItmReceiveID.Text  = String.Empty;
+            txtBuyPrice.Text  = String.Empty;
+            txtRemarks.Text  = String.Empty;
+            txtSellPrice.Text  = String.Empty;
+            txtToalPrice.Text  = String.Empty;
+            txtTotalQuantity.Text  = String.Empty;
+            ddlSupplier.SelectedIndex = 0;
+            ddlItem.SelectedIndex = 0;
+
         }
 
         private bool validation()
@@ -163,6 +212,48 @@ namespace BipuniBitan_UI.Forms.Transaction
                 General.ErrorMessage(ex.Message);
             }
             return flag;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ItemReceControlsClear();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult user = MessageBox.Show(@"Do You want to delete ReceiveItem ?", @"Confirmation",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (user == DialogResult.OK)
+                {
+                    string id = txtItmReceiveID.Text;
+                    
+                    bool result = irm.DeleteReceItemList(id);
+                    if (result)
+                    {
+                        General.SuccessMessage("Deleted successfully");
+                        ItemReceControlsClear();
+                        //Intialization();
+
+
+                    }
+                    else
+                    {
+                        General.SuccessMessage( "Failed to Delete");
+                        //Intialization();
+                        ItemReceControlsClear();
+                    }
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
         }
 
       
