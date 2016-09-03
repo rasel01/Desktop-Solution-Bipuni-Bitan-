@@ -30,24 +30,17 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblFooter = new System.Windows.Forms.LinkLabel();
-            this.pnlForGridControls = new System.Windows.Forms.Panel();
-            this.pnLGridHeader = new System.Windows.Forms.Panel();
-            this.lblGridHeader = new System.Windows.Forms.Label();
-            this.GridPnl = new System.Windows.Forms.Panel();
-            this.dgvCatagoryList = new System.Windows.Forms.DataGridView();
+            this.ddlcheck = new System.Windows.Forms.ComboBox();
+            this.ddlAnother = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
-            this.pnlForGridControls.SuspendLayout();
-            this.pnLGridHeader.SuspendLayout();
-            this.GridPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCatagoryList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lblFooter);
-            this.panel2.Location = new System.Drawing.Point(57, 52);
+            this.panel2.Location = new System.Drawing.Point(79, 219);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1037, 36);
+            this.panel2.Size = new System.Drawing.Size(10, 36);
             this.panel2.TabIndex = 9;
             // 
             // lblFooter
@@ -66,75 +59,40 @@
             this.lblFooter.Text = "Developed and Copyright © 2016 BipuniBitan. All rights reserved.";
             this.lblFooter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlForGridControls
+            // ddlcheck
             // 
-            this.pnlForGridControls.Controls.Add(this.pnLGridHeader);
-            this.pnlForGridControls.Controls.Add(this.GridPnl);
-            this.pnlForGridControls.Location = new System.Drawing.Point(94, 126);
-            this.pnlForGridControls.Name = "pnlForGridControls";
-            this.pnlForGridControls.Size = new System.Drawing.Size(1037, 211);
-            this.pnlForGridControls.TabIndex = 10;
+            this.ddlcheck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlcheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlcheck.FormattingEnabled = true;
+            this.ddlcheck.Location = new System.Drawing.Point(196, 45);
+            this.ddlcheck.Name = "ddlcheck";
+            this.ddlcheck.Size = new System.Drawing.Size(335, 24);
+            this.ddlcheck.TabIndex = 11;
             // 
-            // pnLGridHeader
+            // ddlAnother
             // 
-            this.pnLGridHeader.BackColor = System.Drawing.SystemColors.Info;
-            this.pnLGridHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnLGridHeader.Controls.Add(this.lblGridHeader);
-            this.pnLGridHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnLGridHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnLGridHeader.Name = "pnLGridHeader";
-            this.pnLGridHeader.Size = new System.Drawing.Size(1037, 24);
-            this.pnLGridHeader.TabIndex = 6;
-            // 
-            // lblGridHeader
-            // 
-            this.lblGridHeader.AutoSize = true;
-            this.lblGridHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGridHeader.Location = new System.Drawing.Point(5, 2);
-            this.lblGridHeader.Margin = new System.Windows.Forms.Padding(0);
-            this.lblGridHeader.Name = "lblGridHeader";
-            this.lblGridHeader.Size = new System.Drawing.Size(104, 17);
-            this.lblGridHeader.TabIndex = 1;
-            this.lblGridHeader.Text = "Catagory List";
-            // 
-            // GridPnl
-            // 
-            this.GridPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GridPnl.Controls.Add(this.dgvCatagoryList);
-            this.GridPnl.Location = new System.Drawing.Point(0, 0);
-            this.GridPnl.Margin = new System.Windows.Forms.Padding(0);
-            this.GridPnl.Name = "GridPnl";
-            this.GridPnl.Size = new System.Drawing.Size(1037, 188);
-            this.GridPnl.TabIndex = 2;
-            // 
-            // dgvCatagoryList
-            // 
-            this.dgvCatagoryList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvCatagoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCatagoryList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCatagoryList.Location = new System.Drawing.Point(0, 0);
-            this.dgvCatagoryList.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvCatagoryList.Name = "dgvCatagoryList";
-            this.dgvCatagoryList.Size = new System.Drawing.Size(1035, 186);
-            this.dgvCatagoryList.TabIndex = 0;
+            this.ddlAnother.BackColor = System.Drawing.SystemColors.Info;
+            this.ddlAnother.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ddlAnother.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlAnother.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlAnother.FormattingEnabled = true;
+            this.ddlAnother.Location = new System.Drawing.Point(613, 45);
+            this.ddlAnother.Name = "ddlAnother";
+            this.ddlAnother.Size = new System.Drawing.Size(335, 24);
+            this.ddlAnother.TabIndex = 12;
             // 
             // Raff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 367);
-            this.Controls.Add(this.pnlForGridControls);
+            this.ClientSize = new System.Drawing.Size(1207, 576);
+            this.Controls.Add(this.ddlAnother);
+            this.Controls.Add(this.ddlcheck);
             this.Controls.Add(this.panel2);
             this.Name = "Raff";
             this.Text = "Raff";
-            this.Load += new System.EventHandler(this.Raff_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.pnlForGridControls.ResumeLayout(false);
-            this.pnLGridHeader.ResumeLayout(false);
-            this.pnLGridHeader.PerformLayout();
-            this.GridPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCatagoryList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -143,11 +101,8 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.LinkLabel lblFooter;
-        private System.Windows.Forms.Panel pnlForGridControls;
-        private System.Windows.Forms.Panel pnLGridHeader;
-        private System.Windows.Forms.Label lblGridHeader;
-        private System.Windows.Forms.Panel GridPnl;
-        private System.Windows.Forms.DataGridView dgvCatagoryList;
+        private System.Windows.Forms.ComboBox ddlcheck;
+        private System.Windows.Forms.ComboBox ddlAnother;
 
     }
 }
