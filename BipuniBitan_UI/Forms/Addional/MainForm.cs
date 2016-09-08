@@ -17,7 +17,7 @@ namespace BipuniBitan_UI.Forms.Addional
 {
     public partial class MainForm : Form
     {
-        AuthenticationManager LoginManager = new AuthenticationManager();//commiy
+        AuthenticationManager LoginManager = new AuthenticationManager();
         public MainForm()
         {
             InitializeComponent();
@@ -123,6 +123,18 @@ namespace BipuniBitan_UI.Forms.Addional
             ItmRece.Dock = DockStyle.Fill;
             MainFormPanel.Controls.Add(ItmRece);
             ItmRece.Show();
+        }
+
+        private void stockInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MainFormPanel.Controls.Clear();
+            ItemStock ItmS = new ItemStock();
+            ItmS.TopLevel = false;
+            ItmS.AutoScroll = true;
+            ItmS.FormBorderStyle = FormBorderStyle.None;
+            ItmS.Dock = DockStyle.Fill;
+            MainFormPanel.Controls.Add(ItmS);
+            ItmS.Show();
         }
     }
 }

@@ -563,6 +563,7 @@
             this.dgvReceItmList.Name = "dgvReceItmList";
             this.dgvReceItmList.Size = new System.Drawing.Size(1035, 185);
             this.dgvReceItmList.TabIndex = 0;
+            this.dgvReceItmList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReceItmList_CellContentClick);
             // 
             // UnderLineUnderGrid
             // 

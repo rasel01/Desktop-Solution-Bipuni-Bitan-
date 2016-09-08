@@ -86,6 +86,12 @@
     <Compile Include="Forms\Setup\CatagorySetup.Designer.cs">
       <DependentUpon>CatagorySetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Transaction\ItemStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\ItemStock.Designer.cs">
+      <DependentUpon>ItemStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Transaction\ItemReceive.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setup\CatagorySetup.resx">
       <DependentUpon>CatagorySetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\ItemStock.resx">
+      <DependentUpon>ItemStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\ItemReceive.resx">
       <DependentUpon>ItemReceive.cs</DependentUpon>

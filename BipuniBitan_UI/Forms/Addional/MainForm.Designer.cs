@@ -37,12 +37,13 @@
             this.itemSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tRANSACTIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.receieveItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECURITYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFormPanel = new System.Windows.Forms.Panel();
-            this.receieveItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menus.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,45 +78,53 @@
             // catagorySetupToolStripMenuItem
             // 
             this.catagorySetupToolStripMenuItem.Name = "catagorySetupToolStripMenuItem";
-            this.catagorySetupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.catagorySetupToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.catagorySetupToolStripMenuItem.Text = "Catagory ";
             this.catagorySetupToolStripMenuItem.Click += new System.EventHandler(this.catagorySetupToolStripMenuItem_Click);
             // 
             // brandSetupToolStripMenuItem
             // 
             this.brandSetupToolStripMenuItem.Name = "brandSetupToolStripMenuItem";
-            this.brandSetupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.brandSetupToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.brandSetupToolStripMenuItem.Text = "Brand ";
             this.brandSetupToolStripMenuItem.Click += new System.EventHandler(this.brandSetupToolStripMenuItem_Click);
             // 
             // mesurementSetupToolStripMenuItem
             // 
             this.mesurementSetupToolStripMenuItem.Name = "mesurementSetupToolStripMenuItem";
-            this.mesurementSetupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mesurementSetupToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.mesurementSetupToolStripMenuItem.Text = "Mesurement";
             this.mesurementSetupToolStripMenuItem.Click += new System.EventHandler(this.mesurementSetupToolStripMenuItem_Click);
             // 
             // itemSetupToolStripMenuItem
             // 
             this.itemSetupToolStripMenuItem.Name = "itemSetupToolStripMenuItem";
-            this.itemSetupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.itemSetupToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.itemSetupToolStripMenuItem.Text = "Item";
             this.itemSetupToolStripMenuItem.Click += new System.EventHandler(this.itemSetupToolStripMenuItem_Click);
             // 
             // supplierSetupToolStripMenuItem
             // 
             this.supplierSetupToolStripMenuItem.Name = "supplierSetupToolStripMenuItem";
-            this.supplierSetupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.supplierSetupToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.supplierSetupToolStripMenuItem.Text = "Supplier";
             this.supplierSetupToolStripMenuItem.Click += new System.EventHandler(this.supplierSetupToolStripMenuItem_Click);
             // 
             // tRANSACTIONToolStripMenuItem
             // 
             this.tRANSACTIONToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.receieveItemToolStripMenuItem});
+            this.receieveItemToolStripMenuItem,
+            this.stockInfoToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
             this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
+            // 
+            // receieveItemToolStripMenuItem
+            // 
+            this.receieveItemToolStripMenuItem.Name = "receieveItemToolStripMenuItem";
+            this.receieveItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.receieveItemToolStripMenuItem.Text = "Receieve Item";
+            this.receieveItemToolStripMenuItem.Click += new System.EventHandler(this.receieveItemToolStripMenuItem_Click);
             // 
             // rEPORTToolStripMenuItem
             // 
@@ -153,12 +162,12 @@
             this.MainFormPanel.Size = new System.Drawing.Size(1241, 709);
             this.MainFormPanel.TabIndex = 1;
             // 
-            // receieveItemToolStripMenuItem
+            // stockInfoToolStripMenuItem
             // 
-            this.receieveItemToolStripMenuItem.Name = "receieveItemToolStripMenuItem";
-            this.receieveItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.receieveItemToolStripMenuItem.Text = "Receieve Item";
-            this.receieveItemToolStripMenuItem.Click += new System.EventHandler(this.receieveItemToolStripMenuItem_Click);
+            this.stockInfoToolStripMenuItem.Name = "stockInfoToolStripMenuItem";
+            this.stockInfoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stockInfoToolStripMenuItem.Text = "Stock Info";
+            this.stockInfoToolStripMenuItem.Click += new System.EventHandler(this.stockInfoToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -198,5 +207,6 @@
         private System.Windows.Forms.ToolStripMenuItem supplierSetupToolStripMenuItem;
         private System.Windows.Forms.Panel MainFormPanel;
         private System.Windows.Forms.ToolStripMenuItem receieveItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockInfoToolStripMenuItem;
     }
 }
