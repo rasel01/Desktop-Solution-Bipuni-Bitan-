@@ -17,7 +17,7 @@ namespace BipuniBitan_UI.Forms.Addional
 {
     public partial class MainForm : Form
     {
-        AuthenticationManager LoginManager = new AuthenticationManager();
+        AuthenticationManager LoginManager = new AuthenticationManager();//commiy
         public MainForm()
         {
             InitializeComponent();
@@ -34,10 +34,9 @@ namespace BipuniBitan_UI.Forms.Addional
                 AuthenticationManager.LoginUserName = string.Empty;
                 AuthenticationManager.LoginUserId = string.Empty;
                 AuthenticationManager.LoginUserPass = string.Empty;
-                this.Close();
+                this.Hide();
                 home login = new home();
-               
-                login.Show();
+                login.ShowDialog();
 
             }
 
