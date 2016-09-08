@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="BipuniBitan.bacpac" />
     <None Include="DB-Info\BipuniBitan.bacpac" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
