@@ -35,22 +35,22 @@
             this.lblFormName = new System.Windows.Forms.Label();
             this.UnderLineUnderFormName = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.UnderLineUserControl = new System.Windows.Forms.Panel();
             this.pnlForButtonControls = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtItemName = new System.Windows.Forms.TextBox();
+            this.txtItemCode = new System.Windows.Forms.TextBox();
             this.UnderLineUnderButtonControl = new System.Windows.Forms.Panel();
             this.pnlForGridControls = new System.Windows.Forms.Panel();
             this.pnLGridHeader = new System.Windows.Forms.Panel();
             this.lblGridHeader = new System.Windows.Forms.Label();
             this.GridPnl = new System.Windows.Forms.Panel();
-            this.dgvItmStockList = new System.Windows.Forms.DataGridView();
+            this.dgvItmStockInfo = new System.Windows.Forms.DataGridView();
             this.UnderLineUnderGrid = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblFooter = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.FormHeaderPanel.SuspendLayout();
             this.FormName.SuspendLayout();
@@ -59,7 +59,7 @@
             this.pnlForGridControls.SuspendLayout();
             this.pnLGridHeader.SuspendLayout();
             this.GridPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItmStockList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItmStockInfo)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,14 +113,13 @@
             // UnderLineUnderFormName
             // 
             this.UnderLineUnderFormName.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.UnderLineUnderFormName.Location = new System.Drawing.Point(3, 52);
+            this.UnderLineUnderFormName.Location = new System.Drawing.Point(3, 51);
             this.UnderLineUnderFormName.Name = "UnderLineUnderFormName";
             this.UnderLineUnderFormName.Size = new System.Drawing.Size(1037, 1);
             this.UnderLineUnderFormName.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.UnderLineUserControl);
             this.flowLayoutPanel1.Controls.Add(this.pnlForButtonControls);
             this.flowLayoutPanel1.Controls.Add(this.UnderLineUnderButtonControl);
             this.flowLayoutPanel1.Controls.Add(this.pnlForGridControls);
@@ -134,30 +133,73 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1043, 729);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // UnderLineUserControl
-            // 
-            this.UnderLineUserControl.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.UnderLineUserControl.Location = new System.Drawing.Point(3, 3);
-            this.UnderLineUserControl.Name = "UnderLineUserControl";
-            this.UnderLineUserControl.Size = new System.Drawing.Size(1037, 1);
-            this.UnderLineUserControl.TabIndex = 1;
-            // 
             // pnlForButtonControls
             // 
+            this.pnlForButtonControls.Controls.Add(this.btnRefresh);
             this.pnlForButtonControls.Controls.Add(this.btnSearch);
             this.pnlForButtonControls.Controls.Add(this.label2);
             this.pnlForButtonControls.Controls.Add(this.label1);
-            this.pnlForButtonControls.Controls.Add(this.textBox2);
-            this.pnlForButtonControls.Controls.Add(this.textBox1);
-            this.pnlForButtonControls.Location = new System.Drawing.Point(3, 10);
+            this.pnlForButtonControls.Controls.Add(this.txtItemName);
+            this.pnlForButtonControls.Controls.Add(this.txtItemCode);
+            this.pnlForButtonControls.Location = new System.Drawing.Point(3, 3);
             this.pnlForButtonControls.Name = "pnlForButtonControls";
             this.pnlForButtonControls.Size = new System.Drawing.Size(1037, 51);
             this.pnlForButtonControls.TabIndex = 2;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(739, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(116, 32);
+            this.btnSearch.TabIndex = 7;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(369, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Item Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Item Code";
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName.Location = new System.Drawing.Point(470, 10);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Size = new System.Drawing.Size(245, 31);
+            this.txtItemName.TabIndex = 4;
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemCode.Location = new System.Drawing.Point(98, 10);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(239, 31);
+            this.txtItemCode.TabIndex = 3;
+            // 
             // UnderLineUnderButtonControl
             // 
             this.UnderLineUnderButtonControl.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.UnderLineUnderButtonControl.Location = new System.Drawing.Point(3, 67);
+            this.UnderLineUnderButtonControl.Location = new System.Drawing.Point(3, 60);
             this.UnderLineUnderButtonControl.Name = "UnderLineUnderButtonControl";
             this.UnderLineUnderButtonControl.Size = new System.Drawing.Size(1037, 1);
             this.UnderLineUnderButtonControl.TabIndex = 3;
@@ -166,7 +208,7 @@
             // 
             this.pnlForGridControls.Controls.Add(this.pnLGridHeader);
             this.pnlForGridControls.Controls.Add(this.GridPnl);
-            this.pnlForGridControls.Location = new System.Drawing.Point(3, 74);
+            this.pnlForGridControls.Location = new System.Drawing.Point(3, 67);
             this.pnlForGridControls.Name = "pnlForGridControls";
             this.pnlForGridControls.Size = new System.Drawing.Size(1037, 489);
             this.pnlForGridControls.TabIndex = 11;
@@ -196,27 +238,27 @@
             // GridPnl
             // 
             this.GridPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GridPnl.Controls.Add(this.dgvItmStockList);
+            this.GridPnl.Controls.Add(this.dgvItmStockInfo);
             this.GridPnl.Location = new System.Drawing.Point(0, 0);
             this.GridPnl.Margin = new System.Windows.Forms.Padding(0);
             this.GridPnl.Name = "GridPnl";
             this.GridPnl.Size = new System.Drawing.Size(1037, 481);
             this.GridPnl.TabIndex = 2;
             // 
-            // dgvItmStockList
+            // dgvItmStockInfo
             // 
-            this.dgvItmStockList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvItmStockList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItmStockList.Location = new System.Drawing.Point(0, 23);
-            this.dgvItmStockList.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvItmStockList.Name = "dgvItmStockList";
-            this.dgvItmStockList.Size = new System.Drawing.Size(1035, 453);
-            this.dgvItmStockList.TabIndex = 0;
+            this.dgvItmStockInfo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvItmStockInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItmStockInfo.Location = new System.Drawing.Point(0, 23);
+            this.dgvItmStockInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvItmStockInfo.Name = "dgvItmStockInfo";
+            this.dgvItmStockInfo.Size = new System.Drawing.Size(1035, 456);
+            this.dgvItmStockInfo.TabIndex = 0;
             // 
             // UnderLineUnderGrid
             // 
             this.UnderLineUnderGrid.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.UnderLineUnderGrid.Location = new System.Drawing.Point(3, 569);
+            this.UnderLineUnderGrid.Location = new System.Drawing.Point(3, 562);
             this.UnderLineUnderGrid.Name = "UnderLineUnderGrid";
             this.UnderLineUnderGrid.Size = new System.Drawing.Size(1037, 1);
             this.UnderLineUnderGrid.TabIndex = 12;
@@ -224,7 +266,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.lblFooter);
-            this.panel3.Location = new System.Drawing.Point(3, 576);
+            this.panel3.Location = new System.Drawing.Point(3, 569);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1037, 36);
             this.panel3.TabIndex = 13;
@@ -245,54 +287,17 @@
             this.lblFooter.Text = "Developed and Copyright © 2016 BipuniBitan. All rights reserved.";
             this.lblFooter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // btnRefresh
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(116, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 31);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(537, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(245, 31);
-            this.textBox2.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Item Code";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(436, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Item Name";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(852, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(116, 32);
-            this.btnSearch.TabIndex = 7;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnRefresh.BackColor = System.Drawing.Color.White;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(883, 9);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(116, 32);
+            this.btnRefresh.TabIndex = 8;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // ItemStock
             // 
@@ -315,7 +320,7 @@
             this.pnLGridHeader.ResumeLayout(false);
             this.pnLGridHeader.PerformLayout();
             this.GridPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItmStockList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItmStockInfo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -330,21 +335,21 @@
         private System.Windows.Forms.Panel UnderLineUnderFormName;
         private System.Windows.Forms.Label lblFormName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel UnderLineUserControl;
         private System.Windows.Forms.Panel pnlForButtonControls;
         private System.Windows.Forms.Panel UnderLineUnderButtonControl;
         private System.Windows.Forms.Panel pnlForGridControls;
         private System.Windows.Forms.Panel pnLGridHeader;
         private System.Windows.Forms.Label lblGridHeader;
         private System.Windows.Forms.Panel GridPnl;
-        private System.Windows.Forms.DataGridView dgvItmStockList;
+        private System.Windows.Forms.DataGridView dgvItmStockInfo;
         private System.Windows.Forms.Panel UnderLineUnderGrid;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel lblFooter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtItemName;
+        private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Setup\MessurmentManager.cs" />
     <Compile Include="Setup\SupplierManager.cs" />
     <Compile Include="Transaction\ItemReceiveManager.cs" />
+    <Compile Include="Transaction\ItemStockInfoManager.cs" />
     <Compile Include="Utility\AdditionalManager.cs" />
     <Compile Include="Utility\General.cs" />
   </ItemGroup>
