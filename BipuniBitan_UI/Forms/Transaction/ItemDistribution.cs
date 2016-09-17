@@ -14,6 +14,7 @@ namespace BipuniBitan_UI.Forms.Transaction
         ItemManager im = new ItemManager();
         ItemReceiveManager irm = new ItemReceiveManager();
         ItemDistributionManager itmdm = new ItemDistributionManager();
+       
 
         
         public ItemDistribution()
@@ -28,7 +29,7 @@ namespace BipuniBitan_UI.Forms.Transaction
             
             LoadDistributorList();
             LoadItemList();
-            //LoadReceiveList();
+            LoadDistributionList();
 
         }
 
@@ -95,19 +96,7 @@ namespace BipuniBitan_UI.Forms.Transaction
       
 
    
-        private void ItemReceControlsClear()
-        {
-            txtItmDistributionID.Text  = String.Empty;
-            txtDistributionPrice.Text  = String.Empty;
-            txtRemarks.Text  = String.Empty;
-            //txtSellPrice.Text  = String.Empty;
-            txtDisQuantity.Text  = String.Empty;
-            txtStockQuantity.Text  = String.Empty;
-            ddlDistributor.SelectedIndex = 0;
-            ddlItem.SelectedIndex = 0;
-
-        }
-
+        
         private bool validation()
         {
             string msg = String.Empty;
@@ -115,24 +104,31 @@ namespace BipuniBitan_UI.Forms.Transaction
             try
             {
 
-                if (string.IsNullOrEmpty(txtDistributionPrice.Text))
+                if (string.IsNullOrEmpty(txtStockQuantity.Text))
                 {
-                    msg += "Must need a Item Per Unit Buy Price" + Environment.NewLine;
+                    msg += "Must Receive Quantity of selected item" + Environment.NewLine;
                 }
 
-                //if (string.IsNullOrEmpty(txtSellPrice.Text))
-                //{
-                //    msg += "Must need a Item Per Unit Sell Price" + Environment.NewLine;
-                //}
+                
 
                 if (string.IsNullOrEmpty(txtDisQuantity.Text))
                 {
-                    msg += "Must need a Item Total Price" + Environment.NewLine;
+                    msg += "Must need amount of Distribution Quantity" + Environment.NewLine;
                 }
 
-                if (string.IsNullOrEmpty(txtStockQuantity.Text))
+                if (!string.IsNullOrEmpty(txtDisQuantity.Text))
                 {
-                    msg += "Must need a Item Toatal Quantity" + Environment.NewLine;
+
+                    if (Convert.ToDecimal(txtDisQuantity.Text) > Convert.ToDecimal(txtStockQuantity.Text))
+                    {
+                        msg += "Insufficent Quantity" + Environment.NewLine;
+                    }
+                    
+                }
+
+                if (string.IsNullOrEmpty(txtDistributionPrice.Text))
+                {
+                    msg += "Price cannot be null" + Environment.NewLine;
                 }
                 
                 
@@ -179,17 +175,20 @@ namespace BipuniBitan_UI.Forms.Transaction
             return ds;
         }
 
+       
+
         private void txtDisQuantity_TextChanged(object sender, EventArgs e)
         {
-            decimal stockQuantity = Convert.ToDecimal(txtStockQuantity.Text);
-            decimal disQuantity = Convert.ToDecimal(txtDisQuantity.Text);
-            if (stockQuantity >= disQuantity )
+            string stockQuantity = txtStockQuantity.Text;
+            string disQuantity = txtDisQuantity.Text;
+            
+            if (Convert.ToDecimal(stockQuantity) >= Convert.ToDecimal(disQuantity) )
             {
                 if (ddlItem.SelectedIndex != 0)
                 {
                     DataSet ds = GetReceivedItemInfo();
                     decimal perUnitPrice = Convert.ToDecimal(ds.Tables[0].Rows[0]["sellprice"].ToString());
-                    decimal sellPrice = disQuantity*perUnitPrice;
+                    decimal sellPrice = Convert.ToDecimal(disQuantity)*Convert.ToDecimal(perUnitPrice);
                     txtDistributionPrice.Text = sellPrice.ToString();
                 }
                 
@@ -218,7 +217,7 @@ namespace BipuniBitan_UI.Forms.Transaction
                     if (result)
                     {
                         General.SuccessMessage("Save successfully");
-                        //LoadReceiveList();
+                        LoadDistributionList();
                         ItemDistributionControlsClear();
 
                     }
@@ -233,13 +232,49 @@ namespace BipuniBitan_UI.Forms.Transaction
             }
         }
 
+        private void LoadDistributionList()
+        {
+            DataSet ds = itmdm.GetDistributionList();
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                ShowDistributionItemDgv(ds);
+            }
+            else
+            {
+                dgvDistributeItemst.DataSource = null;
+                dgvDistributeItemst = General.ClearDataGridView(dgvDistributeItemst);
+            }
+        }
+
+        private void ShowDistributionItemDgv(DataSet ds)
+        {
+            dgvDistributeItemst = General.CustomizeDataGridView(dgvDistributeItemst);
+
+            dgvDistributeItemst.Columns.Add("DistributionCode", "Distribution Code");
+            dgvDistributeItemst.Columns.Add("ItemName", "Item Name");
+            dgvDistributeItemst.Columns.Add("DistributorName", "Distributor Name");
+            dgvDistributeItemst.Columns.Add("Quantity", "Quantity");
+            dgvDistributeItemst.Columns.Add("ItemPrice", "Item Price");
+
+            dgvDistributeItemst.Columns["DistributionCode"].DataPropertyName = "DistributionCode";
+            dgvDistributeItemst.Columns["ItemName"].DataPropertyName = "ItemName";
+            dgvDistributeItemst.Columns["DistributorName"].DataPropertyName = "DistributorName";
+            dgvDistributeItemst.Columns["Quantity"].DataPropertyName = "Quantity";
+            dgvDistributeItemst.Columns["ItemPrice"].DataPropertyName = "ItemPrice";
+
+            dgvDistributeItemst.DataSource = ds.Tables[0];
+
+
+
+        }
+
         private void ItemDistributionControlsClear()
         {
-            txtDisQuantity.Text = String.Empty;
-            txtDistributionPrice.Text = String.Empty;
+            txtDisQuantity.Text = @"0.00";
+            txtDistributionPrice.Text = @"0.000";
             txtItmDistributionID.Text = String.Empty;
             txtRemarks.Text = String.Empty;
-            txtStockQuantity.Text = String.Empty;
+            txtStockQuantity.Text = @"0.00";
             ddlDistributor.SelectedIndex = 0;
             ddlItem.SelectedIndex = 0;
             dtpItemDistribute.Text = String.Empty;
@@ -247,7 +282,7 @@ namespace BipuniBitan_UI.Forms.Transaction
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-
+            ItemDistributionControlsClear();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

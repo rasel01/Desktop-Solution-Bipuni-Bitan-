@@ -224,13 +224,14 @@ namespace BipuniBitan_UI.Forms.Transaction
         private void ItemReceControlsClear()
         {
             txtItmReceiveID.Text  = String.Empty;
-            txtBuyPrice.Text  = String.Empty;
+            txtBuyPrice.Text  = @"0.000";
             txtRemarks.Text  = String.Empty;
-            txtSellPrice.Text  = String.Empty;
-            txtToalPrice.Text  = String.Empty;
-            txtTotalQuantity.Text  = String.Empty;
+            txtSellPrice.Text = @"0.000";
+            txtToalPrice.Text = @"0.000";
+            txtTotalQuantity.Text = @"0.00";
             ddlSupplier.SelectedIndex = 0;
             ddlItem.SelectedIndex = 0;
+           
 
         }
 

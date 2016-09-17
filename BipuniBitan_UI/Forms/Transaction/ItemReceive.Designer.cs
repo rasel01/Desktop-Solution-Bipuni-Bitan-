@@ -422,6 +422,7 @@
             this.txtTotalQuantity.Name = "txtTotalQuantity";
             this.txtTotalQuantity.Size = new System.Drawing.Size(262, 26);
             this.txtTotalQuantity.TabIndex = 7;
+            this.txtTotalQuantity.Text = "0.00";
             // 
             // txtToalPrice
             // 
@@ -432,6 +433,7 @@
             this.txtToalPrice.Name = "txtToalPrice";
             this.txtToalPrice.Size = new System.Drawing.Size(262, 26);
             this.txtToalPrice.TabIndex = 8;
+            this.txtToalPrice.Text = "0.000";
             // 
             // txtBuyPrice
             // 
@@ -441,6 +443,7 @@
             this.txtBuyPrice.Name = "txtBuyPrice";
             this.txtBuyPrice.Size = new System.Drawing.Size(262, 26);
             this.txtBuyPrice.TabIndex = 9;
+            this.txtBuyPrice.Text = "0.000";
             // 
             // txtSellPrice
             // 
@@ -450,6 +453,7 @@
             this.txtSellPrice.Name = "txtSellPrice";
             this.txtSellPrice.Size = new System.Drawing.Size(262, 26);
             this.txtSellPrice.TabIndex = 10;
+            this.txtSellPrice.Text = "0.000";
             // 
             // UnderLineUserControl
             // 
