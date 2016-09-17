@@ -43,7 +43,9 @@
     <Compile Include="DbClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DB-Info\BipuniBitan.sql" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="BipuniBitan.bacpac" />
     <None Include="DB-Info\BipuniBitan.bacpac" />
