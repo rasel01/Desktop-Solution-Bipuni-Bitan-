@@ -124,5 +124,29 @@ namespace BipuniBitan_UI.Forms.Addional
             MainFormPanel.Controls.Add(ItmRece);
             ItmRece.Show();
         }
+
+        private void stockInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MainFormPanel.Controls.Clear();
+            ItemStock ItmS = new ItemStock();
+            ItmS.TopLevel = false;
+            ItmS.AutoScroll = true;
+            ItmS.FormBorderStyle = FormBorderStyle.None;
+            ItmS.Dock = DockStyle.Fill;
+            MainFormPanel.Controls.Add(ItmS);
+            ItmS.Show();
+        }
+
+        private void distributeItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MainFormPanel.Controls.Clear();
+            ItemDistribution ItmDis = new ItemDistribution();
+            ItmDis.TopLevel = false;
+            ItmDis.AutoScroll = true;
+            ItmDis.FormBorderStyle = FormBorderStyle.None;
+            ItmDis.Dock = DockStyle.Fill;
+            MainFormPanel.Controls.Add(ItmDis);
+            ItmDis.Show();
+        }
     }
 }
