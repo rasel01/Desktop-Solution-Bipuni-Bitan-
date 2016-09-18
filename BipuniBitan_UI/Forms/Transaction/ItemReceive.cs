@@ -61,7 +61,7 @@ namespace BipuniBitan_UI.Forms.Transaction
             dgvReceItmList.Columns.Add("RcvItemID", "ItemID");
 
             dgvReceItmList.Columns.Add("ItmRcvPerBuy", "Buy Price(per unit)");
-            dgvReceItmList.Columns.Add("ItmRcvPerSell", "Sell Price(per unit)");
+            dgvReceItmList.Columns.Add("ItmRcvPerSell", "Sell Price(per unit)");//commit
             dgvReceItmList.Columns.Add("ItmRcvTotalQuantity", "Total Quantity");
             dgvReceItmList.Columns.Add("Total_Price", "Total Price");
 
