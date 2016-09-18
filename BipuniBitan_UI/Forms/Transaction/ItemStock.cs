@@ -19,7 +19,7 @@ namespace BipuniBitan_UI.Forms.Transaction
         {
             InitializeComponent();
             Intialization();
-            //commit
+            // commit
         }
 
         private void Intialization()
