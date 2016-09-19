@@ -8,12 +8,12 @@ using BipuniBitan_Manager.Utility;
 
 namespace BipuniBitan_UI.Forms.Transaction
 {
-    public partial class ItemReceive : Form
+    public partial class ItemReturn : Form
     {
         SupplierManager sm = new SupplierManager();
         ItemManager im = new ItemManager();
         ItemReceiveManager irm = new ItemReceiveManager();
-        public ItemReceive()
+        public ItemReturn()
         {
             InitializeComponent();
             Intialization();
