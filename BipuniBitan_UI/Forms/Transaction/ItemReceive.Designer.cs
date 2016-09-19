@@ -1,6 +1,6 @@
 ﻿namespace BipuniBitan_UI.Forms.Transaction
 {
-    partial class ItemReturn
+    partial class ItemReceive
     {
         /// <summary>
         /// Required designer variable.
