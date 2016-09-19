@@ -39,14 +39,14 @@
             this.tRANSACTIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receieveItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.distributeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.distributorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECURITYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFormPanel = new System.Windows.Forms.Panel();
-            this.distributeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.distributorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.returnItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menus.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,6 +139,26 @@
             this.stockInfoToolStripMenuItem.Text = "Stock Info";
             this.stockInfoToolStripMenuItem.Click += new System.EventHandler(this.stockInfoToolStripMenuItem_Click);
             // 
+            // distributeItemToolStripMenuItem
+            // 
+            this.distributeItemToolStripMenuItem.Name = "distributeItemToolStripMenuItem";
+            this.distributeItemToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.distributeItemToolStripMenuItem.Text = "Distribute Item";
+            this.distributeItemToolStripMenuItem.Click += new System.EventHandler(this.distributeItemToolStripMenuItem_Click);
+            // 
+            // distributorsToolStripMenuItem
+            // 
+            this.distributorsToolStripMenuItem.Name = "distributorsToolStripMenuItem";
+            this.distributorsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.distributorsToolStripMenuItem.Text = "Distributors";
+            // 
+            // returnItemToolStripMenuItem
+            // 
+            this.returnItemToolStripMenuItem.Name = "returnItemToolStripMenuItem";
+            this.returnItemToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.returnItemToolStripMenuItem.Text = "Return Item";
+            this.returnItemToolStripMenuItem.Click += new System.EventHandler(this.returnItemToolStripMenuItem_Click);
+            // 
             // rEPORTToolStripMenuItem
             // 
             this.rEPORTToolStripMenuItem.Name = "rEPORTToolStripMenuItem";
@@ -174,25 +194,6 @@
             this.MainFormPanel.Name = "MainFormPanel";
             this.MainFormPanel.Size = new System.Drawing.Size(1241, 709);
             this.MainFormPanel.TabIndex = 1;
-            // 
-            // distributeItemToolStripMenuItem
-            // 
-            this.distributeItemToolStripMenuItem.Name = "distributeItemToolStripMenuItem";
-            this.distributeItemToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.distributeItemToolStripMenuItem.Text = "Distribute Item";
-            this.distributeItemToolStripMenuItem.Click += new System.EventHandler(this.distributeItemToolStripMenuItem_Click);
-            // 
-            // distributorsToolStripMenuItem
-            // 
-            this.distributorsToolStripMenuItem.Name = "distributorsToolStripMenuItem";
-            this.distributorsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.distributorsToolStripMenuItem.Text = "Distributors";
-            // 
-            // returnItemToolStripMenuItem
-            // 
-            this.returnItemToolStripMenuItem.Name = "returnItemToolStripMenuItem";
-            this.returnItemToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.returnItemToolStripMenuItem.Text = "Return Item";
             // 
             // MainForm
             // 
