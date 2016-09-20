@@ -17,6 +17,7 @@ namespace BipuniBitan_UI.Forms.Transaction
         {
             InitializeComponent();
             Intialization();
+            PnlInfoGrpbx.Visible = false;
 
         }
 
@@ -38,80 +39,80 @@ namespace BipuniBitan_UI.Forms.Transaction
             }
             else
             {
-                dgvReceItmList.DataSource = null;
-                dgvReceItmList = General.ClearDataGridView(dgvReceItmList);
+                dgvReturnItmList.DataSource = null;
+                dgvReturnItmList = General.ClearDataGridView(dgvReturnItmList);
             }
         }
 
         private void ShowReceiveItemList(DataSet ds)
         {
-            dgvReceItmList = General.CustomizeDataGridView(dgvReceItmList);
+            dgvReturnItmList = General.CustomizeDataGridView(dgvReturnItmList);
             DataGridViewImageColumn edit = new DataGridViewImageColumn();
             Image editeImage = (Image)(new Bitmap(Properties.Resources.edit, new Size(22, 22)));
             edit.Image = editeImage;
             edit.Width = 20;
             edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvReceItmList.Columns.Add(edit);
+            dgvReturnItmList.Columns.Add(edit);
 
 
             //dgvReceItmList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
-            dgvReceItmList.Columns.Add("ReceiveID", "ReceiveID");
+            dgvReturnItmList.Columns.Add("ReceiveID", "ReceiveID");
 
-            dgvReceItmList.Columns.Add("RcvItemID", "ItemID");
+            dgvReturnItmList.Columns.Add("RcvItemID", "ItemID");
 
-            dgvReceItmList.Columns.Add("ItmRcvPerBuy", "Buy Price(per unit)");
-            dgvReceItmList.Columns.Add("ItmRcvPerSell", "Sell Price(per unit)");//commit
-            dgvReceItmList.Columns.Add("ItmRcvTotalQuantity", "Total Quantity");
-            dgvReceItmList.Columns.Add("Total_Price", "Total Price");
+            dgvReturnItmList.Columns.Add("ItmRcvPerBuy", "Buy Price(per unit)");
+            dgvReturnItmList.Columns.Add("ItmRcvPerSell", "Sell Price(per unit)");//commit
+            dgvReturnItmList.Columns.Add("ItmRcvTotalQuantity", "Total Quantity");
+            dgvReturnItmList.Columns.Add("Total_Price", "Total Price");
 
-            dgvReceItmList.Columns.Add("ItmRcvSuppID", "Supp ID");
+            dgvReturnItmList.Columns.Add("ItmRcvSuppID", "Supp ID");
 
-            dgvReceItmList.Columns.Add("ItmRcvDate", "Receive Date");
-            dgvReceItmList.Columns.Add("ItmRcvRemarks", "Remarks");
-            dgvReceItmList.Columns.Add("ItemName", "Item Name");
-            dgvReceItmList.Columns.Add("ItmRcvSuppName", "Supplier Name");
-            dgvReceItmList.Columns.Add("CataName", "Catagory Name");
-            dgvReceItmList.Columns.Add("BrandName", "Brand Name");
-            dgvReceItmList.Columns.Add("UnitName", "Unit Name");
+            dgvReturnItmList.Columns.Add("ItmRcvDate", "Receive Date");
+            dgvReturnItmList.Columns.Add("ItmRcvRemarks", "Remarks");
+            dgvReturnItmList.Columns.Add("ItemName", "Item Name");
+            dgvReturnItmList.Columns.Add("ItmRcvSuppName", "Supplier Name");
+            dgvReturnItmList.Columns.Add("CataName", "Catagory Name");
+            dgvReturnItmList.Columns.Add("BrandName", "Brand Name");
+            dgvReturnItmList.Columns.Add("UnitName", "Unit Name");
 
-            dgvReceItmList.Columns["ReceiveID"].DataPropertyName = "ReceiveID";
-            dgvReceItmList.Columns["RcvItemID"].DataPropertyName = "RcvItemID";
-            dgvReceItmList.Columns["ItmRcvPerBuy"].DataPropertyName = "ItmRcvPerBuy";
-            dgvReceItmList.Columns["ItmRcvPerSell"].DataPropertyName = "ItmRcvPerSell";
-            dgvReceItmList.Columns["ItmRcvTotalQuantity"].DataPropertyName = "ItmRcvTotalQuantity";
-            dgvReceItmList.Columns["Total_Price"].DataPropertyName = "Total_Price";
-            dgvReceItmList.Columns["ItmRcvSuppID"].DataPropertyName = "ItmRcvSuppID";
-            dgvReceItmList.Columns["ItmRcvDate"].DataPropertyName = "ItmRcvDate";
-            dgvReceItmList.Columns["ItmRcvRemarks"].DataPropertyName = "ItmRcvRemarks";
-            dgvReceItmList.Columns["ItemName"].DataPropertyName = "ItemName";
-            dgvReceItmList.Columns["ItmRcvSuppName"].DataPropertyName = "ItmRcvSuppName";
-            dgvReceItmList.Columns["CataName"].DataPropertyName = "CataName";
-            dgvReceItmList.Columns["BrandName"].DataPropertyName = "BrandName";
-            dgvReceItmList.Columns["UnitName"].DataPropertyName = "UnitName";
+            dgvReturnItmList.Columns["ReceiveID"].DataPropertyName = "ReceiveID";
+            dgvReturnItmList.Columns["RcvItemID"].DataPropertyName = "RcvItemID";
+            dgvReturnItmList.Columns["ItmRcvPerBuy"].DataPropertyName = "ItmRcvPerBuy";
+            dgvReturnItmList.Columns["ItmRcvPerSell"].DataPropertyName = "ItmRcvPerSell";
+            dgvReturnItmList.Columns["ItmRcvTotalQuantity"].DataPropertyName = "ItmRcvTotalQuantity";
+            dgvReturnItmList.Columns["Total_Price"].DataPropertyName = "Total_Price";
+            dgvReturnItmList.Columns["ItmRcvSuppID"].DataPropertyName = "ItmRcvSuppID";
+            dgvReturnItmList.Columns["ItmRcvDate"].DataPropertyName = "ItmRcvDate";
+            dgvReturnItmList.Columns["ItmRcvRemarks"].DataPropertyName = "ItmRcvRemarks";
+            dgvReturnItmList.Columns["ItemName"].DataPropertyName = "ItemName";
+            dgvReturnItmList.Columns["ItmRcvSuppName"].DataPropertyName = "ItmRcvSuppName";
+            dgvReturnItmList.Columns["CataName"].DataPropertyName = "CataName";
+            dgvReturnItmList.Columns["BrandName"].DataPropertyName = "BrandName";
+            dgvReturnItmList.Columns["UnitName"].DataPropertyName = "UnitName";
 
-            dgvReceItmList.DataSource = ds.Tables[0];
-            dgvReceItmList.Columns["ReceiveID"].Visible = false;
-            dgvReceItmList.Columns["RcvItemID"].Visible = false;
-            dgvReceItmList.Columns["ItmRcvSuppID"].Visible = false;
-            dgvReceItmList.Columns["CataName"].Visible = false;
-            dgvReceItmList.Columns["BrandName"].Visible = false;
-            dgvReceItmList.Columns["UnitName"].Visible = false;
+            dgvReturnItmList.DataSource = ds.Tables[0];
+            dgvReturnItmList.Columns["ReceiveID"].Visible = false;
+            dgvReturnItmList.Columns["RcvItemID"].Visible = false;
+            dgvReturnItmList.Columns["ItmRcvSuppID"].Visible = false;
+            dgvReturnItmList.Columns["CataName"].Visible = false;
+            dgvReturnItmList.Columns["BrandName"].Visible = false;
+            dgvReturnItmList.Columns["UnitName"].Visible = false;
 
         }
         private void dgvReceItmList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == 0)
             {
-              txtItmReceiveID.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ReceiveID"].Value.ToString();
-              ddlItem.SelectedValue = dgvReceItmList.Rows[e.RowIndex].Cells["RcvItemID"].Value.ToString();
-              ddlSupplier.SelectedValue = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvSuppID"].Value.ToString();
-              dtpItemReceive.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvDate"].Value.ToString();
-              txtRemarks.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvRemarks"].Value.ToString();
-              txtTotalQuantity.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvTotalQuantity"].Value.ToString();
-              txtToalPrice.Text = dgvReceItmList.Rows[e.RowIndex].Cells["Total_Price"].Value.ToString();
-              txtBuyPrice.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvPerBuy"].Value.ToString();
-              txtSellPrice.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvPerSell"].Value.ToString();
+              //txtItmReceiveID.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ReceiveID"].Value.ToString();
+              //ddlItem.SelectedValue = dgvReceItmList.Rows[e.RowIndex].Cells["RcvItemID"].Value.ToString();
+              //ddlSupplier.SelectedValue = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvSuppID"].Value.ToString();
+              //dtpItemReceive.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvDate"].Value.ToString();
+              //txtRemarks.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvRemarks"].Value.ToString();
+              //txtTotalQuantity.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvTotalQuantity"].Value.ToString();
+              //txtToalPrice.Text = dgvReceItmList.Rows[e.RowIndex].Cells["Total_Price"].Value.ToString();
+              //txtBuyPrice.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvPerBuy"].Value.ToString();
+              //txtSellPrice.Text = dgvReceItmList.Rows[e.RowIndex].Cells["ItmRcvPerSell"].Value.ToString();
              
 
             }
@@ -141,10 +142,10 @@ namespace BipuniBitan_UI.Forms.Transaction
 
             }
 
-            ddlSupplier.DataSource = dt;
-            ddlSupplier.DisplayMember = "SupplerName";
-            ddlSupplier.ValueMember = "SupplerID";
-            ddlSupplier.SelectedIndex = 0;
+            //ddlSupplier.DataSource = dt;
+            //ddlSupplier.DisplayMember = "SupplerName";
+            //ddlSupplier.ValueMember = "SupplerID";
+            //ddlSupplier.SelectedIndex = 0;
 
         }
 
@@ -172,48 +173,48 @@ namespace BipuniBitan_UI.Forms.Transaction
 
             }
 
-            ddlItem.DataSource = dt;
-            ddlItem.DisplayMember = "ItemName";
-            ddlItem.ValueMember = "ItemID";
-            ddlItem.SelectedIndex = 0;
+            //ddlItem.DataSource = dt;
+            //ddlItem.DisplayMember = "ItemName";
+            //ddlItem.ValueMember = "ItemID";
+           // ddlItem.SelectedIndex = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (validation())
-            {
-                string dtime = dtpItemReceive.Text;
-                string buyPrice = txtBuyPrice.Text;
-                string sellPrice = txtSellPrice.Text;
-                string totalQuantity = txtTotalQuantity.Text;
-                string totalPrice = txtToalPrice.Text;
-                string remarks = txtRemarks.Text;
-                string itemName = ddlItem.SelectedValue.ToString();
-                string supplierName = ddlSupplier.SelectedValue.ToString();
-                string ItemReceID = txtItmReceiveID.Text;
+            //if (validation())
+            //{
+            //    //string dtime = dtpItemReceive.Text;
+            //    //string buyPrice = txtBuyPrice.Text;
+            //    //string sellPrice = txtSellPrice.Text;
+            //    //string totalQuantity = txtTotalQuantity.Text;
+            //    //string totalPrice = txtToalPrice.Text;
+            //    //string remarks = txtRemarks.Text;
+            //    //string itemName = ddlItem.SelectedValue.ToString();
+            //    //string supplierName = ddlSupplier.SelectedValue.ToString();
+            //    //string ItemReceID = txtItmReceiveID.Text;
 
                
 
-                try
-                {
-                    bool result = irm.SaveUpdate_ItemReceive(dtime, buyPrice, sellPrice,
-                   totalQuantity, totalPrice, remarks, itemName, supplierName, ItemReceID);
-                    if (result)
-                    {
-                        General.SuccessMessage("Save successfully");
-                        LoadReceiveList();
-                        ItemReceControlsClear();
+            //    try
+            //    {
+            //       // bool result = irm.SaveUpdate_ItemReceive(dtime, buyPrice, sellPrice,
+            //       //totalQuantity, totalPrice, remarks, itemName, supplierName, ItemReceID);
+            //       // if (result)
+            //       // {
+            //       //     General.SuccessMessage("Save successfully");
+            //       //     LoadReceiveList();
+            //       //     ItemReceControlsClear();
 
-                    }
+            //       // }
 
-                }
-                catch (Exception ex)
-                {
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                    General.ErrorMessage(ex.Message);
-                }
+            //        General.ErrorMessage(ex.Message);
+            //    }
 
-            }
+            //}
         }
 
         private void LoadDgvReceiveItem()
@@ -221,78 +222,78 @@ namespace BipuniBitan_UI.Forms.Transaction
             throw new NotImplementedException();
         }
 
-        private void ItemReceControlsClear()
-        {
-            txtItmReceiveID.Text  = String.Empty;
-            txtBuyPrice.Text  = @"0.000";
-            txtRemarks.Text  = String.Empty;
-            txtSellPrice.Text = @"0.000";
-            txtToalPrice.Text = @"0.000";
-            txtTotalQuantity.Text = @"0.00";
-            ddlSupplier.SelectedIndex = 0;
-            ddlItem.SelectedIndex = 0;
+        //private void ItemReceControlsClear()
+        //{
+        //    txtItmReceiveID.Text  = String.Empty;
+        //    txtBuyPrice.Text  = @"0.000";
+        //    txtRemarks.Text  = String.Empty;
+        //    txtSellPrice.Text = @"0.000";
+        //    txtToalPrice.Text = @"0.000";
+        //    txtTotalQuantity.Text = @"0.00";
+        //    ddlSupplier.SelectedIndex = 0;
+        //    ddlItem.SelectedIndex = 0;
            
 
-        }
+        //}
 
-        private bool validation()
-        {
-            string msg = String.Empty;
-            bool flag = false;
-            try
-            {
+        //private bool validation()
+        //{
+        //    string msg = String.Empty;
+        //    bool flag = false;
+        //    try
+        //    {
 
-                if (string.IsNullOrEmpty(txtBuyPrice.Text))
-                {
-                    msg += "Must need a Item Per Unit Buy Price" + Environment.NewLine;
-                }
+        //        if (string.IsNullOrEmpty(txtBuyPrice.Text))
+        //        {
+        //            msg += "Must need a Item Per Unit Buy Price" + Environment.NewLine;
+        //        }
 
-                if (string.IsNullOrEmpty(txtSellPrice.Text))
-                {
-                    msg += "Must need a Item Per Unit Sell Price" + Environment.NewLine;
-                }
+        //        if (string.IsNullOrEmpty(txtSellPrice.Text))
+        //        {
+        //            msg += "Must need a Item Per Unit Sell Price" + Environment.NewLine;
+        //        }
 
-                if (string.IsNullOrEmpty(txtToalPrice.Text))
-                {
-                    msg += "Must need a Item Total Price" + Environment.NewLine;
-                }
+        //        if (string.IsNullOrEmpty(txtToalPrice.Text))
+        //        {
+        //            msg += "Must need a Item Total Price" + Environment.NewLine;
+        //        }
 
-                if (string.IsNullOrEmpty(txtTotalQuantity.Text))
-                {
-                    msg += "Must need a Item Toatal Quantity" + Environment.NewLine;
-                }
+        //        if (string.IsNullOrEmpty(txtTotalQuantity.Text))
+        //        {
+        //            msg += "Must need a Item Toatal Quantity" + Environment.NewLine;
+        //        }
                 
                 
-                if (ddlSupplier.SelectedValue.ToString() == "0")
-                {
-                    msg += "Must select a Supplier Name" + Environment.NewLine;
-                }
-                if (ddlItem.SelectedValue.ToString() == "0")
-                {
-                    msg += "Must select a Item Name" + Environment.NewLine;
-                }
+        //        if (ddlSupplier.SelectedValue.ToString() == "0")
+        //        {
+        //            msg += "Must select a Supplier Name" + Environment.NewLine;
+        //        }
+        //        if (ddlItem.SelectedValue.ToString() == "0")
+        //        {
+        //            msg += "Must select a Item Name" + Environment.NewLine;
+        //        }
                
-                if (msg == String.Empty)
-                {
-                    flag = true;
-                }
-                else
-                {
-                    General.WarningMessage(msg);
-                }
+        //        if (msg == String.Empty)
+        //        {
+        //            flag = true;
+        //        }
+        //        else
+        //        {
+        //            General.WarningMessage(msg);
+        //        }
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                General.ErrorMessage(ex.Message);
-            }
-            return flag;
-        }
+        //        General.ErrorMessage(ex.Message);
+        //    }
+        //    return flag;
+        //}
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            ItemReceControlsClear();
+           // ItemReceControlsClear();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -303,23 +304,23 @@ namespace BipuniBitan_UI.Forms.Transaction
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (user == DialogResult.OK)
                 {
-                    string id = txtItmReceiveID.Text;
+                    //string id = txtItmReceiveID.Text;
                     
-                    bool result = irm.DeleteReceItemList(id);
-                    if (result)
-                    {
-                        General.SuccessMessage("Deleted successfully");
-                        ItemReceControlsClear();
-                        //Intialization();
+                    //bool result = irm.DeleteReceItemList(id);
+                    //if (result)
+                    //{
+                    //    General.SuccessMessage("Deleted successfully");
+                    //    ItemReceControlsClear();
+                    //    //Intialization();
 
 
-                    }
-                    else
-                    {
-                        General.SuccessMessage( "Failed to Delete");
-                        //Intialization();
-                        ItemReceControlsClear();
-                    }
+                    //}
+                    //else
+                    //{
+                    //    General.SuccessMessage( "Failed to Delete");
+                    //    //Intialization();
+                    //    ItemReceControlsClear();
+                    //}
                 }
 
 
@@ -330,6 +331,13 @@ namespace BipuniBitan_UI.Forms.Transaction
 
                 General.ErrorMessage(ex.Message);
             }
+        }
+
+       
+
+        private void btnSerach_Click(object sender, EventArgs e)
+        {
+            PnlInfoGrpbx.Visible = true;
         }
 
       
