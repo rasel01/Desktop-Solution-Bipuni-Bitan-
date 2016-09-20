@@ -1,6 +1,6 @@
 ﻿namespace BipuniBitan_UI.Forms.Transaction
 {
-    partial class ItemReceive
+    partial class ItemReturn
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemReceive));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemReturn));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.FormHeaderPanel = new System.Windows.Forms.Panel();
             this.FormName = new System.Windows.Forms.Panel();
             this.lblFormName = new System.Windows.Forms.Label();
             this.UnderLineUnderFormName = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.UnderLineUserControl = new System.Windows.Forms.Panel();
+            this.pnlForButtonControls = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.UnderLineUnderButtonControl = new System.Windows.Forms.Panel();
+            this.pnlForGridControls = new System.Windows.Forms.Panel();
+            this.pnLGridHeader = new System.Windows.Forms.Panel();
+            this.lblGridHeader = new System.Windows.Forms.Label();
+            this.GridPnl = new System.Windows.Forms.Panel();
+            this.dgvReceItmList = new System.Windows.Forms.DataGridView();
+            this.UnderLineUnderGrid = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblFooter = new System.Windows.Forms.LinkLabel();
             this.PnlUserControl = new System.Windows.Forms.Panel();
-            this.PnlInfoGrpbx = new System.Windows.Forms.GroupBox();
+            this.pnlSearch = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtRemarks = new System.Windows.Forms.TextBox();
@@ -58,35 +72,24 @@
             this.txtToalPrice = new System.Windows.Forms.TextBox();
             this.txtBuyPrice = new System.Windows.Forms.TextBox();
             this.txtSellPrice = new System.Windows.Forms.TextBox();
-            this.UnderLineUserControl = new System.Windows.Forms.Panel();
-            this.pnlForButtonControls = new System.Windows.Forms.Panel();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.UnderLineUnderButtonControl = new System.Windows.Forms.Panel();
-            this.pnlForGridControls = new System.Windows.Forms.Panel();
-            this.pnLGridHeader = new System.Windows.Forms.Panel();
-            this.lblGridHeader = new System.Windows.Forms.Label();
-            this.GridPnl = new System.Windows.Forms.Panel();
-            this.dgvReceItmList = new System.Windows.Forms.DataGridView();
-            this.UnderLineUnderGrid = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblFooter = new System.Windows.Forms.LinkLabel();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.FormHeaderPanel.SuspendLayout();
             this.FormName.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.PnlUserControl.SuspendLayout();
-            this.PnlInfoGrpbx.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.pnlForButtonControls.SuspendLayout();
             this.pnlForGridControls.SuspendLayout();
             this.pnLGridHeader.SuspendLayout();
             this.GridPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceItmList)).BeginInit();
             this.panel3.SuspendLayout();
+            this.PnlUserControl.SuspendLayout();
+            this.pnlSearch.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -132,9 +135,9 @@
             this.lblFormName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormName.Location = new System.Drawing.Point(3, 20);
             this.lblFormName.Name = "lblFormName";
-            this.lblFormName.Size = new System.Drawing.Size(124, 25);
+            this.lblFormName.Size = new System.Drawing.Size(111, 25);
             this.lblFormName.TabIndex = 0;
-            this.lblFormName.Text = "Item Receive";
+            this.lblFormName.Text = "Item Return";
             // 
             // UnderLineUnderFormName
             // 
@@ -146,6 +149,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.pnlSearch);
             this.flowLayoutPanel1.Controls.Add(this.PnlUserControl);
             this.flowLayoutPanel1.Controls.Add(this.UnderLineUserControl);
             this.flowLayoutPanel1.Controls.Add(this.pnlForButtonControls);
@@ -161,38 +165,176 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1043, 729);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
+            // UnderLineUserControl
+            // 
+            this.UnderLineUserControl.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.UnderLineUserControl.Location = new System.Drawing.Point(3, 401);
+            this.UnderLineUserControl.Name = "UnderLineUserControl";
+            this.UnderLineUserControl.Size = new System.Drawing.Size(1037, 1);
+            this.UnderLineUserControl.TabIndex = 1;
+            // 
+            // pnlForButtonControls
+            // 
+            this.pnlForButtonControls.Controls.Add(this.btnDelete);
+            this.pnlForButtonControls.Controls.Add(this.btnSave);
+            this.pnlForButtonControls.Controls.Add(this.btnRefresh);
+            this.pnlForButtonControls.Location = new System.Drawing.Point(3, 408);
+            this.pnlForButtonControls.Name = "pnlForButtonControls";
+            this.pnlForButtonControls.Size = new System.Drawing.Size(1037, 38);
+            this.pnlForButtonControls.TabIndex = 2;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(214, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(106, 29);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(123, 6);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(91, 29);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(6, 6);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(117, 29);
+            this.btnRefresh.TabIndex = 0;
+            this.btnRefresh.Text = "REFRESH";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            // 
+            // UnderLineUnderButtonControl
+            // 
+            this.UnderLineUnderButtonControl.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.UnderLineUnderButtonControl.Location = new System.Drawing.Point(3, 452);
+            this.UnderLineUnderButtonControl.Name = "UnderLineUnderButtonControl";
+            this.UnderLineUnderButtonControl.Size = new System.Drawing.Size(1037, 1);
+            this.UnderLineUnderButtonControl.TabIndex = 3;
+            // 
+            // pnlForGridControls
+            // 
+            this.pnlForGridControls.Controls.Add(this.pnLGridHeader);
+            this.pnlForGridControls.Controls.Add(this.GridPnl);
+            this.pnlForGridControls.Location = new System.Drawing.Point(3, 459);
+            this.pnlForGridControls.Name = "pnlForGridControls";
+            this.pnlForGridControls.Size = new System.Drawing.Size(1037, 217);
+            this.pnlForGridControls.TabIndex = 11;
+            // 
+            // pnLGridHeader
+            // 
+            this.pnLGridHeader.BackColor = System.Drawing.SystemColors.Info;
+            this.pnLGridHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnLGridHeader.Controls.Add(this.lblGridHeader);
+            this.pnLGridHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnLGridHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnLGridHeader.Name = "pnLGridHeader";
+            this.pnLGridHeader.Size = new System.Drawing.Size(1037, 24);
+            this.pnLGridHeader.TabIndex = 6;
+            // 
+            // lblGridHeader
+            // 
+            this.lblGridHeader.AutoSize = true;
+            this.lblGridHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGridHeader.Location = new System.Drawing.Point(5, 2);
+            this.lblGridHeader.Margin = new System.Windows.Forms.Padding(0);
+            this.lblGridHeader.Name = "lblGridHeader";
+            this.lblGridHeader.Size = new System.Drawing.Size(141, 17);
+            this.lblGridHeader.TabIndex = 1;
+            this.lblGridHeader.Text = "Received Item List";
+            // 
+            // GridPnl
+            // 
+            this.GridPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GridPnl.Controls.Add(this.dgvReceItmList);
+            this.GridPnl.Location = new System.Drawing.Point(0, 0);
+            this.GridPnl.Margin = new System.Windows.Forms.Padding(0);
+            this.GridPnl.Name = "GridPnl";
+            this.GridPnl.Size = new System.Drawing.Size(1037, 213);
+            this.GridPnl.TabIndex = 2;
+            // 
+            // dgvReceItmList
+            // 
+            this.dgvReceItmList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvReceItmList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReceItmList.Location = new System.Drawing.Point(0, 23);
+            this.dgvReceItmList.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvReceItmList.Name = "dgvReceItmList";
+            this.dgvReceItmList.Size = new System.Drawing.Size(1035, 185);
+            this.dgvReceItmList.TabIndex = 0;
+            // 
+            // UnderLineUnderGrid
+            // 
+            this.UnderLineUnderGrid.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.UnderLineUnderGrid.Location = new System.Drawing.Point(3, 682);
+            this.UnderLineUnderGrid.Name = "UnderLineUnderGrid";
+            this.UnderLineUnderGrid.Size = new System.Drawing.Size(1037, 1);
+            this.UnderLineUnderGrid.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lblFooter);
+            this.panel3.Location = new System.Drawing.Point(3, 689);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1037, 36);
+            this.panel3.TabIndex = 13;
+            // 
+            // lblFooter
+            // 
+            this.lblFooter.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.lblFooter.AutoSize = true;
+            this.lblFooter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFooter.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblFooter.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lblFooter.LinkColor = System.Drawing.Color.Black;
+            this.lblFooter.Location = new System.Drawing.Point(254, 9);
+            this.lblFooter.Name = "lblFooter";
+            this.lblFooter.Size = new System.Drawing.Size(464, 20);
+            this.lblFooter.TabIndex = 5;
+            this.lblFooter.TabStop = true;
+            this.lblFooter.Text = "Developed and Copyright © 2016 BipuniBitan. All rights reserved.";
+            this.lblFooter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // PnlUserControl
             // 
-            this.PnlUserControl.Controls.Add(this.PnlInfoGrpbx);
-            this.PnlUserControl.Location = new System.Drawing.Point(3, 3);
+            this.PnlUserControl.Controls.Add(this.panel1);
+            this.PnlUserControl.Location = new System.Drawing.Point(3, 53);
             this.PnlUserControl.Name = "PnlUserControl";
-            this.PnlUserControl.Size = new System.Drawing.Size(1037, 371);
+            this.PnlUserControl.Size = new System.Drawing.Size(1037, 342);
             this.PnlUserControl.TabIndex = 0;
             // 
-            // PnlInfoGrpbx
+            // pnlSearch
             // 
-            this.PnlInfoGrpbx.BackColor = System.Drawing.SystemColors.Window;
-            this.PnlInfoGrpbx.Controls.Add(this.panel1);
-            this.PnlInfoGrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlInfoGrpbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PnlInfoGrpbx.Location = new System.Drawing.Point(0, 0);
-            this.PnlInfoGrpbx.Margin = new System.Windows.Forms.Padding(0);
-            this.PnlInfoGrpbx.Name = "PnlInfoGrpbx";
-            this.PnlInfoGrpbx.Size = new System.Drawing.Size(1037, 371);
-            this.PnlInfoGrpbx.TabIndex = 0;
-            this.PnlInfoGrpbx.TabStop = false;
-            this.PnlInfoGrpbx.Text = "Receive a New Item";
+            this.pnlSearch.Controls.Add(this.btnSearch);
+            this.pnlSearch.Controls.Add(this.label1);
+            this.pnlSearch.Controls.Add(this.txtSearch);
+            this.pnlSearch.Location = new System.Drawing.Point(3, 3);
+            this.pnlSearch.Name = "pnlSearch";
+            this.pnlSearch.Size = new System.Drawing.Size(1037, 44);
+            this.pnlSearch.TabIndex = 14;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Controls.Add(this.tableLayoutPanel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 26);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 342);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(1037, 334);
+            this.panel1.TabIndex = 14;
+            this.panel1.Visible = false;
             // 
             // tableLayoutPanel2
             // 
@@ -455,153 +597,37 @@
             this.txtSellPrice.TabIndex = 10;
             this.txtSellPrice.Text = "0.000";
             // 
-            // UnderLineUserControl
+            // txtSearch
             // 
-            this.UnderLineUserControl.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.UnderLineUserControl.Location = new System.Drawing.Point(3, 380);
-            this.UnderLineUserControl.Name = "UnderLineUserControl";
-            this.UnderLineUserControl.Size = new System.Drawing.Size(1037, 1);
-            this.UnderLineUserControl.TabIndex = 1;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(278, 8);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(240, 26);
+            this.txtSearch.TabIndex = 0;
             // 
-            // pnlForButtonControls
+            // label1
             // 
-            this.pnlForButtonControls.Controls.Add(this.btnDelete);
-            this.pnlForButtonControls.Controls.Add(this.btnSave);
-            this.pnlForButtonControls.Controls.Add(this.btnRefresh);
-            this.pnlForButtonControls.Location = new System.Drawing.Point(3, 387);
-            this.pnlForButtonControls.Name = "pnlForButtonControls";
-            this.pnlForButtonControls.Size = new System.Drawing.Size(1037, 38);
-            this.pnlForButtonControls.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(206, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "DISTRIBUTE  ITEM CODE ";
             // 
-            // btnDelete
+            // btnSearch
             // 
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(214, 6);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(106, 29);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(524, 6);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(107, 30);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // btnSave
-            // 
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(123, 6);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(91, 29);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(6, 6);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(117, 29);
-            this.btnRefresh.TabIndex = 0;
-            this.btnRefresh.Text = "REFRESH";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // UnderLineUnderButtonControl
-            // 
-            this.UnderLineUnderButtonControl.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.UnderLineUnderButtonControl.Location = new System.Drawing.Point(3, 431);
-            this.UnderLineUnderButtonControl.Name = "UnderLineUnderButtonControl";
-            this.UnderLineUnderButtonControl.Size = new System.Drawing.Size(1037, 1);
-            this.UnderLineUnderButtonControl.TabIndex = 3;
-            // 
-            // pnlForGridControls
-            // 
-            this.pnlForGridControls.Controls.Add(this.pnLGridHeader);
-            this.pnlForGridControls.Controls.Add(this.GridPnl);
-            this.pnlForGridControls.Location = new System.Drawing.Point(3, 438);
-            this.pnlForGridControls.Name = "pnlForGridControls";
-            this.pnlForGridControls.Size = new System.Drawing.Size(1037, 217);
-            this.pnlForGridControls.TabIndex = 11;
-            // 
-            // pnLGridHeader
-            // 
-            this.pnLGridHeader.BackColor = System.Drawing.SystemColors.Info;
-            this.pnLGridHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnLGridHeader.Controls.Add(this.lblGridHeader);
-            this.pnLGridHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnLGridHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnLGridHeader.Name = "pnLGridHeader";
-            this.pnLGridHeader.Size = new System.Drawing.Size(1037, 24);
-            this.pnLGridHeader.TabIndex = 6;
-            // 
-            // lblGridHeader
-            // 
-            this.lblGridHeader.AutoSize = true;
-            this.lblGridHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGridHeader.Location = new System.Drawing.Point(5, 2);
-            this.lblGridHeader.Margin = new System.Windows.Forms.Padding(0);
-            this.lblGridHeader.Name = "lblGridHeader";
-            this.lblGridHeader.Size = new System.Drawing.Size(141, 17);
-            this.lblGridHeader.TabIndex = 1;
-            this.lblGridHeader.Text = "Received Item List";
-            // 
-            // GridPnl
-            // 
-            this.GridPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GridPnl.Controls.Add(this.dgvReceItmList);
-            this.GridPnl.Location = new System.Drawing.Point(0, 0);
-            this.GridPnl.Margin = new System.Windows.Forms.Padding(0);
-            this.GridPnl.Name = "GridPnl";
-            this.GridPnl.Size = new System.Drawing.Size(1037, 213);
-            this.GridPnl.TabIndex = 2;
-            // 
-            // dgvReceItmList
-            // 
-            this.dgvReceItmList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvReceItmList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReceItmList.Location = new System.Drawing.Point(0, 23);
-            this.dgvReceItmList.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvReceItmList.Name = "dgvReceItmList";
-            this.dgvReceItmList.Size = new System.Drawing.Size(1035, 185);
-            this.dgvReceItmList.TabIndex = 0;
-            this.dgvReceItmList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReceItmList_CellContentClick);
-            // 
-            // UnderLineUnderGrid
-            // 
-            this.UnderLineUnderGrid.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.UnderLineUnderGrid.Location = new System.Drawing.Point(3, 661);
-            this.UnderLineUnderGrid.Name = "UnderLineUnderGrid";
-            this.UnderLineUnderGrid.Size = new System.Drawing.Size(1037, 1);
-            this.UnderLineUnderGrid.TabIndex = 12;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lblFooter);
-            this.panel3.Location = new System.Drawing.Point(3, 668);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1037, 36);
-            this.panel3.TabIndex = 13;
-            // 
-            // lblFooter
-            // 
-            this.lblFooter.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
-            this.lblFooter.AutoSize = true;
-            this.lblFooter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFooter.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblFooter.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.lblFooter.LinkColor = System.Drawing.Color.Black;
-            this.lblFooter.Location = new System.Drawing.Point(254, 9);
-            this.lblFooter.Name = "lblFooter";
-            this.lblFooter.Size = new System.Drawing.Size(464, 20);
-            this.lblFooter.TabIndex = 5;
-            this.lblFooter.TabStop = true;
-            this.lblFooter.Text = "Developed and Copyright © 2016 BipuniBitan. All rights reserved.";
-            this.lblFooter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ItemReceive
+            // ItemReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -609,20 +635,13 @@
             this.ClientSize = new System.Drawing.Size(1254, 670);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ItemReceive";
+            this.Name = "ItemReturn";
             this.Text = "Catagory";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.FormHeaderPanel.ResumeLayout(false);
             this.FormName.ResumeLayout(false);
             this.FormName.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.PnlUserControl.ResumeLayout(false);
-            this.PnlInfoGrpbx.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.pnlForButtonControls.ResumeLayout(false);
             this.pnlForGridControls.ResumeLayout(false);
             this.pnLGridHeader.ResumeLayout(false);
@@ -631,6 +650,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceItmList)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.PnlUserControl.ResumeLayout(false);
+            this.pnlSearch.ResumeLayout(false);
+            this.pnlSearch.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -643,9 +670,6 @@
         private System.Windows.Forms.Panel UnderLineUnderFormName;
         private System.Windows.Forms.Label lblFormName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel PnlUserControl;
-        private System.Windows.Forms.GroupBox PnlInfoGrpbx;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel UnderLineUserControl;
         private System.Windows.Forms.Panel pnlForButtonControls;
         private System.Windows.Forms.Button btnRefresh;
@@ -660,25 +684,31 @@
         private System.Windows.Forms.Panel UnderLineUnderGrid;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel lblFooter;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel PnlUserControl;
+        private System.Windows.Forms.Panel pnlSearch;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox txtRemarks;
+        private System.Windows.Forms.TextBox txtItmReceiveID;
         private System.Windows.Forms.Label lblCatagoryID;
+        private System.Windows.Forms.Label lbSupName;
         private System.Windows.Forms.Label lbCompanyName;
         private System.Windows.Forms.Label lbSupAddress;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox ddlSupplier;
+        private System.Windows.Forms.ComboBox ddlItem;
+        private System.Windows.Forms.DateTimePicker dtpItemReceive;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtItmReceiveID;
         private System.Windows.Forms.TextBox txtTotalQuantity;
         private System.Windows.Forms.TextBox txtToalPrice;
         private System.Windows.Forms.TextBox txtBuyPrice;
         private System.Windows.Forms.TextBox txtSellPrice;
-        private System.Windows.Forms.Label lbSupName;
-        private System.Windows.Forms.ComboBox ddlSupplier;
-        private System.Windows.Forms.ComboBox ddlItem;
-        private System.Windows.Forms.DateTimePicker dtpItemReceive;
-        private System.Windows.Forms.TextBox txtRemarks;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
