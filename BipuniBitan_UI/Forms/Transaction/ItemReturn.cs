@@ -12,11 +12,18 @@ namespace BipuniBitan_UI.Forms.Transaction
     {
         SupplierManager sm = new SupplierManager();
         ItemManager im = new ItemManager();
-        ItemReceiveManager irm = new ItemReceiveManager();
+        ItemReturnManager itr = new ItemReturnManager();
+        private int _ItemCode;
+        private int _UserID;
+        private string _OldQuantity;
+        //private int _UserID;
+        
+        
         public ItemReturn()
         {
             InitializeComponent();
             Intialization();
+
 
 
         }
@@ -24,58 +31,98 @@ namespace BipuniBitan_UI.Forms.Transaction
         private void Intialization()
         {
             PnlInfoGrpbx.Visible = false;
-
+            
         }
-
-
-
-
-
-
-        
 
        
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (validation())
+
+            try
             {
-                //string dtime = dtpItemReceive.Text;
-                //string buyPrice = txtBuyPrice.Text;
-                //string sellPrice = txtSellPrice.Text;
-                //string totalQuantity = txtTotalQuantity.Text;
-                //string totalPrice = txtToalPrice.Text;
-                //string remarks = txtRemarks.Text;
-                //string itemName = ddlItem.SelectedValue.ToString();
-                //string supplierName = ddlSupplier.SelectedValue.ToString();
-                //string ItemReceID = txtItmReceiveID.Text;
 
-
-
-                try
+                if (validation())
                 {
-                    // bool result = irm.SaveUpdate_ItemReceive(dtime, buyPrice, sellPrice,
-                    //totalQuantity, totalPrice, remarks, itemName, supplierName, ItemReceID);
-                    // if (result)
-                    // {
-                    //     General.SuccessMessage("Save successfully");
-                    //     LoadReceiveList();
-                    //     ItemReceControlsClear();
+                    string dtime = dtpDistDate.Text;
+                    string sellPrice = txtSellPrice.Text;
+                    string totalQuantity = txtTotalQuantity.Text;
+                    string remarks = txtRemarks.Text;
+                    string itemName = txtItemName.ToString();
+                    string dtributorName = txtDistributorName.ToString();
+                    string distrinutionCode = txtDistCode.Text;
+                    string itemCode = _ItemCode.ToString();
+                    string userCode = _UserID.ToString();
 
-                    // }
+
+                    try
+                    {
+                        bool result = itr.SaveUpdate_ItemReturn(dtime, sellPrice, totalQuantity,
+                       remarks, itemName, dtributorName, distrinutionCode, itemCode, userCode);
+                        if (result)
+                        {
+                            General.SuccessMessage("Save successfully");
+                            LoadDgvReturnItemList(String.Empty);
+                            ItemReturnControlsClear();
+
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        General.ErrorMessage(ex.Message);
+                    }
 
                 }
-                catch (Exception ex)
-                {
-
-                    General.ErrorMessage(ex.Message);
-                }
-
+            }
+            catch (Exception ex)
+            {
+                    
+               General.ErrorMessage(ex.Message);
             }
         }
 
         private bool validation()
         {
-            throw new NotImplementedException();
+           decimal quantity =Convert.ToDecimal(txtTotalQuantity.Text);
+           decimal oldQuantity =Convert.ToDecimal(_OldQuantity);
+            string msg = String.Empty;
+            bool flag = false;
+            try
+            {
+
+                if (string.IsNullOrEmpty(txtTotalQuantity.Text))
+                {
+                    msg += "Must need a Quantity that want return" + Environment.NewLine;
+                }
+
+                if (!string.IsNullOrEmpty(txtTotalQuantity.Text))
+                {
+                    if (quantity > oldQuantity)
+                    {
+                        msg += "Return Item Must Equal or Less than Distribute Quantity" + Environment.NewLine;
+                    }
+                   
+                }
+                
+                if (msg == String.Empty)
+                {
+                    flag = true;
+                }
+                else
+                {
+                    General.WarningMessage(msg);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+            return flag;
+            
+           
         }
 
 
@@ -157,14 +204,15 @@ namespace BipuniBitan_UI.Forms.Transaction
         private void ItemReturnControlsClear()
         {
             txtDistCode.Text = String.Empty;
-            txtSellPrice.Text = @"0.000";
             txtRemarks.Text = String.Empty;
-            txtTotalPrice.Text = @"0.000";
+            txtSellPrice.Text = @"0.000";
             txtTotalQuantity.Text = @"0.00";
-            txtSupplierID.Text = string.Empty;
             txtItemName.Text = string.Empty;
             txtDistributorName.Text = string.Empty;
             dtpDistDate.ResetText();
+            txtSearch.Text = string.Empty;
+            PnlInfoGrpbx.Visible = false;
+            LoadDgvReturnItemList(String.Empty);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -208,14 +256,15 @@ namespace BipuniBitan_UI.Forms.Transaction
 
         private void btnSerach_Click(object sender, EventArgs e)
         {
-            LoadDgvReturnItemList();
+            string id = txtSearch.Text;
+            LoadDgvReturnItemList(id);
         }
 
-        private void LoadDgvReturnItemList()
+        private void LoadDgvReturnItemList(string id)
         {
             try
             {
-                DataSet ds = irm.ReceivedItmList();
+                DataSet ds = itr.DistributeItmList(id);
                 if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     ShowReturnItemList(ds);
@@ -233,6 +282,7 @@ namespace BipuniBitan_UI.Forms.Transaction
             }
         }
 
+
         private void ShowReturnItemList(DataSet ds)
         {
             dgvReturnItmList = General.CustomizeDataGridView(dgvReturnItmList);
@@ -246,43 +296,40 @@ namespace BipuniBitan_UI.Forms.Transaction
 
             //dgvReceItmList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
-            //dgvReturnItmList.Columns.Add("ReceiveID", "ReceiveID");
+            dgvReturnItmList.Columns.Add("DistributeID", "DistributeID");
+            dgvReturnItmList.Columns.Add("ItemName", "ItemName");
+            dgvReturnItmList.Columns.Add("Quantity", "Quantity");
+            dgvReturnItmList.Columns.Add("Price", "Price");//commit
+            dgvReturnItmList.Columns.Add("DistDate", "DistDate");
+            dgvReturnItmList.Columns.Add("DistName", "DistName");
+            dgvReturnItmList.Columns.Add("Remarks", "Remarks");
 
-            //dgvReturnItmList.Columns.Add("RcvItemID", "ItemID");
-
-            //dgvReturnItmList.Columns.Add("ItmRcvPerBuy", "Buy Price(per unit)");
-            //dgvReturnItmList.Columns.Add("ItmRcvPerSell", "Sell Price(per unit)");//commit
-            //dgvReturnItmList.Columns.Add("ItmRcvTotalQuantity", "Total Quantity");
-            //dgvReturnItmList.Columns.Add("Total_Price", "Total Price");
-
-            //dgvReturnItmList.Columns.Add("ItmRcvSuppID", "Supp ID");
-
-            //dgvReturnItmList.Columns.Add("ItmRcvDate", "Receive Date");
-            //dgvReturnItmList.Columns.Add("ItmRcvRemarks", "Remarks");
+            dgvReturnItmList.Columns.Add("itemCode", "itemCode");
+            dgvReturnItmList.Columns.Add("UserID", "UserID");
             //dgvReturnItmList.Columns.Add("ItemName", "Item Name");
             //dgvReturnItmList.Columns.Add("ItmRcvSuppName", "Supplier Name");
             //dgvReturnItmList.Columns.Add("CataName", "Catagory Name");
             //dgvReturnItmList.Columns.Add("BrandName", "Brand Name");
             //dgvReturnItmList.Columns.Add("UnitName", "Unit Name");
 
-            //dgvReturnItmList.Columns["ReceiveID"].DataPropertyName = "ReceiveID";
-            //dgvReturnItmList.Columns["RcvItemID"].DataPropertyName = "RcvItemID";
-            //dgvReturnItmList.Columns["ItmRcvPerBuy"].DataPropertyName = "ItmRcvPerBuy";
-            //dgvReturnItmList.Columns["ItmRcvPerSell"].DataPropertyName = "ItmRcvPerSell";
-            //dgvReturnItmList.Columns["ItmRcvTotalQuantity"].DataPropertyName = "ItmRcvTotalQuantity";
-            //dgvReturnItmList.Columns["Total_Price"].DataPropertyName = "Total_Price";
-            //dgvReturnItmList.Columns["ItmRcvSuppID"].DataPropertyName = "ItmRcvSuppID";
-            //dgvReturnItmList.Columns["ItmRcvDate"].DataPropertyName = "ItmRcvDate";
-            //dgvReturnItmList.Columns["ItmRcvRemarks"].DataPropertyName = "ItmRcvRemarks";
+            dgvReturnItmList.Columns["DistributeID"].DataPropertyName = "DistributeID";
+            dgvReturnItmList.Columns["ItemName"].DataPropertyName = "ItemName";
+            dgvReturnItmList.Columns["Quantity"].DataPropertyName = "Quantity";
+            dgvReturnItmList.Columns["Price"].DataPropertyName = "Price";
+            dgvReturnItmList.Columns["DistDate"].DataPropertyName = "DistDate";
+            dgvReturnItmList.Columns["DistName"].DataPropertyName = "DistName";
+            dgvReturnItmList.Columns["Remarks"].DataPropertyName = "Remarks";
+            dgvReturnItmList.Columns["itemCode"].DataPropertyName = "itemCode";
+            dgvReturnItmList.Columns["UserID"].DataPropertyName = "UserID";
             //dgvReturnItmList.Columns["ItemName"].DataPropertyName = "ItemName";
             //dgvReturnItmList.Columns["ItmRcvSuppName"].DataPropertyName = "ItmRcvSuppName";
             //dgvReturnItmList.Columns["CataName"].DataPropertyName = "CataName";
             //dgvReturnItmList.Columns["BrandName"].DataPropertyName = "BrandName";
             //dgvReturnItmList.Columns["UnitName"].DataPropertyName = "UnitName";
 
-            //dgvReturnItmList.DataSource = ds.Tables[0];
-            //dgvReturnItmList.Columns["ReceiveID"].Visible = false;
-            //dgvReturnItmList.Columns["RcvItemID"].Visible = false;
+            dgvReturnItmList.DataSource = ds.Tables[0];
+            dgvReturnItmList.Columns["itemCode"].Visible = false;
+            dgvReturnItmList.Columns["UserID"].Visible = false;
             //dgvReturnItmList.Columns["ItmRcvSuppID"].Visible = false;
             //dgvReturnItmList.Columns["CataName"].Visible = false;
             //dgvReturnItmList.Columns["BrandName"].Visible = false;
@@ -291,7 +338,22 @@ namespace BipuniBitan_UI.Forms.Transaction
 
         private void dgvReturnItmList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            PnlInfoGrpbx.Visible = true;
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                PnlInfoGrpbx.Visible = true;
+                txtDistCode.Text = dgvReturnItmList.Rows[e.RowIndex].Cells["DistributeID"].Value.ToString();
+                txtItemName.Text = dgvReturnItmList.Rows[e.RowIndex].Cells["ItemName"].Value.ToString();
+                txtTotalQuantity.Text = dgvReturnItmList.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
+                _OldQuantity =  dgvReturnItmList.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
+                txtSellPrice.Text = dgvReturnItmList.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                dtpDistDate.Text = dgvReturnItmList.Rows[e.RowIndex].Cells["DistDate"].Value.ToString();
+                txtDistributorName.Text = dgvReturnItmList.Rows[e.RowIndex].Cells["DistName"].Value.ToString();
+                txtRemarks.Text = dgvReturnItmList.Rows[e.RowIndex].Cells["Remarks"].Value.ToString();
+                _ItemCode = (int) dgvReturnItmList.Rows[e.RowIndex].Cells["itemCode"].Value;
+                _UserID = (int) dgvReturnItmList.Rows[e.RowIndex].Cells["UserID"].Value;
+            }
+          
+           
         }
 
 
