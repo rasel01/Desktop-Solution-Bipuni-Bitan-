@@ -179,19 +179,27 @@ namespace BipuniBitan_UI.Forms.Transaction
 
         private void txtDisQuantity_TextChanged(object sender, EventArgs e)
         {
-            string stockQuantity = txtStockQuantity.Text;
-            string disQuantity = txtDisQuantity.Text;
-            
-            if (Convert.ToDecimal(stockQuantity) >= Convert.ToDecimal(disQuantity) )
+            try
             {
-                if (ddlItem.SelectedIndex != 0)
+                string stockQuantity = txtStockQuantity.Text;
+                string disQuantity = txtDisQuantity.Text == String.Empty ? "0":txtDisQuantity.Text;
+
+                if (Convert.ToDecimal(stockQuantity) >= Convert.ToDecimal(disQuantity))
                 {
-                    DataSet ds = GetReceivedItemInfo();
-                    decimal perUnitPrice = Convert.ToDecimal(ds.Tables[0].Rows[0]["sellprice"].ToString());
-                    decimal sellPrice = Convert.ToDecimal(disQuantity)*Convert.ToDecimal(perUnitPrice);
-                    txtDistributionPrice.Text = sellPrice.ToString();
+                    if (ddlItem.SelectedIndex != 0)
+                    {
+                        DataSet ds = GetReceivedItemInfo();
+                        decimal perUnitPrice = Convert.ToDecimal(ds.Tables[0].Rows[0]["sellprice"].ToString());
+                        decimal sellPrice = Convert.ToDecimal(disQuantity) * Convert.ToDecimal(perUnitPrice);
+                        txtDistributionPrice.Text = sellPrice.ToString();
+                    }
+
                 }
-                
+            }
+            catch (Exception ex)
+            {
+                   
+                General.ErrorMessage(ex.Message);
             }
         }
 

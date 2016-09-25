@@ -171,6 +171,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Reports\" />
     <Folder Include="Resources\Item-Images\" />
   </ItemGroup>
   <ItemGroup>

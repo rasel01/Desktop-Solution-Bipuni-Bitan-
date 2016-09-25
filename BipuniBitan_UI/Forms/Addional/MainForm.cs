@@ -148,5 +148,17 @@ namespace BipuniBitan_UI.Forms.Addional
             MainFormPanel.Controls.Add(ItmDis);
             ItmDis.Show();
         }
+
+        private void returnItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MainFormPanel.Controls.Clear();
+            ItemReturn itemRet = new ItemReturn();
+            itemRet.TopLevel = false;
+            itemRet.AutoScroll = true;
+            itemRet.FormBorderStyle = FormBorderStyle.None;
+            itemRet.Dock = DockStyle.Fill;
+            MainFormPanel.Controls.Add(itemRet);
+            itemRet.Show();
+        }
     }
 }
