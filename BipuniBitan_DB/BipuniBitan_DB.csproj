@@ -49,6 +49,7 @@
   <ItemGroup>
     <None Include="BipuniBitan.bacpac" />
     <None Include="DB-Info\BipuniBitan.bak" />
+    <None Include="DB-Info\BipuniBitan_25-09-2016.bak" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
