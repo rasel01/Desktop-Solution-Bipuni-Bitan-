@@ -37,7 +37,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.PnlUserControl = new System.Windows.Forms.Panel();
             this.PnlInfoGrpbx = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlSearch = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.txtItmReceiveID = new System.Windows.Forms.TextBox();
@@ -78,7 +78,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.PnlUserControl.SuspendLayout();
             this.PnlInfoGrpbx.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlSearch.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.pnlForButtonControls.SuspendLayout();
@@ -172,7 +172,7 @@
             // PnlInfoGrpbx
             // 
             this.PnlInfoGrpbx.BackColor = System.Drawing.SystemColors.Window;
-            this.PnlInfoGrpbx.Controls.Add(this.panel1);
+            this.PnlInfoGrpbx.Controls.Add(this.pnlSearch);
             this.PnlInfoGrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlInfoGrpbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PnlInfoGrpbx.Location = new System.Drawing.Point(0, 0);
@@ -185,14 +185,14 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
-            this.panel1.Controls.Add(this.tableLayoutPanel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 26);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 342);
-            this.panel1.TabIndex = 0;
+            this.pnlSearch.Controls.Add(this.tableLayoutPanel2);
+            this.pnlSearch.Controls.Add(this.tableLayoutPanel3);
+            this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSearch.Location = new System.Drawing.Point(3, 26);
+            this.pnlSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlSearch.Name = "panel1";
+            this.pnlSearch.Size = new System.Drawing.Size(1031, 342);
+            this.pnlSearch.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -618,7 +618,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.PnlUserControl.ResumeLayout(false);
             this.PnlInfoGrpbx.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pnlSearch.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);

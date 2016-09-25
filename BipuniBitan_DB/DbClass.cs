@@ -8,9 +8,9 @@ namespace BipuniBitan_DB
 {
     public class DbClass
     {
-
+        // COMMIT
         // Connection String Info :
-
+       // COKNLNLDN
         string cs = ConfigurationManager.ConnectionStrings["BipuniBitan"].ConnectionString;
         // commitvhvvvvvj
 
