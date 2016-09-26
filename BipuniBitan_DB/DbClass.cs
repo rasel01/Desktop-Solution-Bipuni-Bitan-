@@ -12,7 +12,7 @@ namespace BipuniBitan_DB
         // Connection String Info :
        // COKNLNLDN
         string cs = ConfigurationManager.ConnectionStrings["BipuniBitan"].ConnectionString;
-        // commitvhvvvvvj
+        
 
 
         // method for insert,update, delete operation
