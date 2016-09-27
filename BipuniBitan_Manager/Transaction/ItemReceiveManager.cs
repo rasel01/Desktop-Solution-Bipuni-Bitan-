@@ -23,7 +23,7 @@ namespace BipuniBitan_Manager.Transaction
                 string spname = "Insert_Update_ItemReceive";
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 DbClass db = new DbClass();
-                parameters.Add(new SqlParameter("@dtime", dtime));
+                parameters.Add(new SqlParameter("@dtime", Convert.ToDateTime(dtime)));
                 parameters.Add(new SqlParameter("@buyPrice", buyPrice));
                 parameters.Add(new SqlParameter("@sellPrice", sellPrice));
                 parameters.Add(new SqlParameter("@totalQuantity", totalQuantity));
