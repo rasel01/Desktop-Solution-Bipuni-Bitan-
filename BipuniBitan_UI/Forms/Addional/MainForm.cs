@@ -160,5 +160,18 @@ namespace BipuniBitan_UI.Forms.Addional
             MainFormPanel.Controls.Add(itemRet);
             itemRet.Show();
         }
+
+        private void staffCreationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MainFormPanel.Controls.Clear();
+            StaffCreation staff = new StaffCreation();
+            staff.TopLevel = false;
+            staff.AutoScroll = true;
+            staff.FormBorderStyle = FormBorderStyle.None;
+            staff.Dock = DockStyle.Fill;
+            MainFormPanel.Controls.Add(staff);
+            staff.Show();
+
+        }
     }
 }

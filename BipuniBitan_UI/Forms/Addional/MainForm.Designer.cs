@@ -47,6 +47,7 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFormPanel = new System.Windows.Forms.Panel();
+            this.staffCreationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menus.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,7 +169,8 @@
             // sECURITYToolStripMenuItem
             // 
             this.sECURITYToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logoutToolStripMenuItem});
+            this.logoutToolStripMenuItem,
+            this.staffCreationToolStripMenuItem});
             this.sECURITYToolStripMenuItem.Name = "sECURITYToolStripMenuItem";
             this.sECURITYToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.sECURITYToolStripMenuItem.Text = "SECURITY";
@@ -176,7 +178,7 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -194,6 +196,13 @@
             this.MainFormPanel.Name = "MainFormPanel";
             this.MainFormPanel.Size = new System.Drawing.Size(1241, 709);
             this.MainFormPanel.TabIndex = 1;
+            // 
+            // staffCreationToolStripMenuItem
+            // 
+            this.staffCreationToolStripMenuItem.Name = "staffCreationToolStripMenuItem";
+            this.staffCreationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.staffCreationToolStripMenuItem.Text = "Staff Creation";
+            this.staffCreationToolStripMenuItem.Click += new System.EventHandler(this.staffCreationToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -237,5 +246,6 @@
         private System.Windows.Forms.ToolStripMenuItem distributeItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem distributorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem staffCreationToolStripMenuItem;
     }
 }

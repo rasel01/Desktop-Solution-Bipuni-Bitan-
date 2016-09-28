@@ -49,7 +49,8 @@ namespace BipuniBitan_Manager.Security
         }
 
 
-        public int SaveNewRegisterUser(string fullName, string userName, string password, string mobileNumber, string address, string sex)
+        public int SaveNewRegisterUser(string fullName, string userName, string password, string mobileNumber, 
+            string address, string sex,string userStatus,string userType,string userid)
         {
             int result = 0;
             try
@@ -64,12 +65,13 @@ namespace BipuniBitan_Manager.Security
                 parameters.Add(new SqlParameter("@user_Password", password));
                 parameters.Add(new SqlParameter("@Mobile_Number", mobileNumber));
                 parameters.Add(new SqlParameter("@address", address));
-                parameters.Add(new SqlParameter("@user_Sex", sex));
-                parameters.Add(new SqlParameter("@user_Type", "user"));
-                parameters.Add(new SqlParameter("@user_status", 1));
-                parameters.Add(new SqlParameter("@createby", "admin"));
+                parameters.Add(new SqlParameter("@user_Sex", sex ));
+                parameters.Add(new SqlParameter("@user_Type", userType == String.Empty ? "user" : userType));
+                parameters.Add(new SqlParameter("@user_status", userStatus == String.Empty ? "1" : userStatus));
+                parameters.Add(new SqlParameter("@userid", userid)); 
+                parameters.Add(new SqlParameter("@createby", "admin")); 
                 parameters.Add(new SqlParameter("@createDate", DateTime.Now));
-                parameters.Add(new SqlParameter("@modifyby", userName));
+                parameters.Add(new SqlParameter("@modifyby", "admin"));
                 parameters.Add(new SqlParameter("@modifyDate", DateTime.Now));
 
                 result = db.ExecuteNonQueryMethod(procedureName, parameters, out error);
@@ -106,6 +108,81 @@ namespace BipuniBitan_Manager.Security
                     General.ErrorMessage(error);
                 }
 
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+            return dt;
+        }
+
+        public DataSet LoadRegisteredUserName()
+        {
+            DataSet ds = null;
+            string error;
+            try
+            {
+                string sql = "LoadRegisteredUserName";
+                DbClass db = new DbClass();
+                List<SqlParameter> sqlParameter = new List<SqlParameter>();
+                ds = db.ReturnExecuteDatasetMethod(sql, sqlParameter, out error);
+                if (error != string.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+            return ds;
+        }
+
+        public DataTable LoadUserType()
+        {
+            DataTable dt = new DataTable();
+            
+            
+            try
+            {
+                
+                dt.Columns.Add("TypeName");
+                dt.Columns.Add("TypeID");
+               
+                dt.Rows.Add("--Select--", "0");
+                dt.Rows.Add("Admin", "admin");
+                dt.Rows.Add("User", "user");
+                dt.Rows.Add("Staff", "staff");
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+            return dt;
+        }
+
+        public DataTable LoadUserStatus()
+        {
+            DataTable dt = new DataTable();
+
+
+            try
+            {
+
+                dt.Columns.Add("StatusName");
+                dt.Columns.Add("StatusID");
+
+                dt.Rows.Add("--Select--", "0");
+                dt.Rows.Add("Active", "1");
+                dt.Rows.Add("InActive", "0");
+               
 
             }
             catch (Exception ex)

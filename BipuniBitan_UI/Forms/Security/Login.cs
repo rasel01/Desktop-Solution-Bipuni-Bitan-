@@ -139,7 +139,7 @@ namespace BipuniBitan_UI.Forms.Security
                 }
 
 
-                int registrationResult= AuthManager.SaveNewRegisterUser(fullName, userName, password, mobileNumber, address, sex);
+                int registrationResult= AuthManager.SaveNewRegisterUser(fullName, userName, password, mobileNumber, address, sex,String.Empty,String.Empty, String.Empty);
                 if (registrationResult > 0)
                 {
                     General.SuccessMessage("User Successfully registered");
