@@ -192,5 +192,35 @@ namespace BipuniBitan_Manager.Security
             }
             return dt;
         }
+
+        public bool DeleteUserList(string id, string username)
+        {
+            bool result = false;
+            try
+            {
+                string sql = "DeleteFromUserList";
+                string error;
+                DbClass db = new DbClass();
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(new SqlParameter("@user_id", id));
+                parameters.Add(new SqlParameter("@username", username));
+                int exe = db.ExecuteNonQueryMethod(sql, parameters, out error);
+                if (error != String.Empty)
+                {
+                    General.ErrorMessage(error);
+                }
+                if (exe > 0)
+                {
+                    result = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                General.ErrorMessage(ex.Message);
+            }
+            return result;
+        }
     }
 }

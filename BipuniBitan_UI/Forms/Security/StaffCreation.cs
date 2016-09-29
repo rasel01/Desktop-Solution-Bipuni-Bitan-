@@ -20,7 +20,7 @@ namespace BipuniBitan_UI.Forms.Transaction
         private string _UserMobile;
 
         private string _OldQuantity;
-      
+
 
 
         public StaffCreation()
@@ -71,7 +71,7 @@ namespace BipuniBitan_UI.Forms.Transaction
 
                 if (validation())
                 {
-                    
+
                     try
                     {
                         if (AuthenticationManager.LoginUserId == @"admin")
@@ -89,9 +89,9 @@ namespace BipuniBitan_UI.Forms.Transaction
                         }
                         else
                         {
-                             General.WarningMessage("You do not have any permission");
+                            General.WarningMessage("You do not have any permission");
                         }
-                        
+
 
                     }
                     catch (Exception ex)
@@ -111,7 +111,7 @@ namespace BipuniBitan_UI.Forms.Transaction
 
         private bool validation()
         {
-            
+
             string msg = String.Empty;
             bool flag = false;
             try
@@ -143,7 +143,7 @@ namespace BipuniBitan_UI.Forms.Transaction
                 {
                     msg += "Must need Status of User" + Environment.NewLine;
                 }
-                
+
 
                 if (msg == String.Empty)
                 {
@@ -181,16 +181,8 @@ namespace BipuniBitan_UI.Forms.Transaction
             ddlUserType.SelectedIndex = 0;
             ddlStatus.SelectedIndex = 0;
             PnlInfoGrpbx.Visible = false;
-             LoadDgvUserList();
+            LoadDgvUserList();
         }
-
-     
-
-
-
-    
-
-       
 
 
         private void ShowUserList(DataSet ds)
@@ -204,7 +196,7 @@ namespace BipuniBitan_UI.Forms.Transaction
             dgvUserItmList.Columns.Add(edit);
 
 
-            
+
 
 
             dgvUserItmList.Columns.Add("user_Name", "Login Name");
@@ -233,7 +225,7 @@ namespace BipuniBitan_UI.Forms.Transaction
             dgvUserItmList.Columns["Mobile_Number"].DataPropertyName = "Mobile_Number";
             dgvUserItmList.Columns["user_Sex"].DataPropertyName = "user_Sex";
             dgvUserItmList.Columns["address"].DataPropertyName = "address";
-           
+
 
             dgvUserItmList.DataSource = ds.Tables[0];
             dgvUserItmList.Columns["UserID"].Visible = false;
@@ -242,7 +234,7 @@ namespace BipuniBitan_UI.Forms.Transaction
             dgvUserItmList.Columns["Mobile_Number"].Visible = false;
             dgvUserItmList.Columns["user_Sex"].Visible = false;
             dgvUserItmList.Columns["address"].Visible = false;
-            
+
         }
 
         private void dgvReturnItmList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -255,7 +247,7 @@ namespace BipuniBitan_UI.Forms.Transaction
                 ddlUserType.SelectedValue = dgvUserItmList.Rows[e.RowIndex].Cells["user_Type"].Value.ToString();
 
                 LoadUserStatus();
-                ddlStatus.SelectedValue = (bool)dgvUserItmList.Rows[e.RowIndex].Cells["user_status"].Value ==  true ? "1" :"0";
+                ddlStatus.SelectedValue = (bool)dgvUserItmList.Rows[e.RowIndex].Cells["user_status"].Value == true ? "1" : "0";
                 txtUserID.Text = dgvUserItmList.Rows[e.RowIndex].Cells["UserID"].Value.ToString();
                 txtFullName.Text = dgvUserItmList.Rows[e.RowIndex].Cells["name"].Value.ToString();
                 txtPassword.Text = dgvUserItmList.Rows[e.RowIndex].Cells["user_Password"].Value.ToString();
@@ -293,7 +285,12 @@ namespace BipuniBitan_UI.Forms.Transaction
 
         }
 
-       
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 
